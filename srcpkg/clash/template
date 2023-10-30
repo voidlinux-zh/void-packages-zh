@@ -1,6 +1,6 @@
 # Template file for 'clash'
 pkgname=clash
-version=1.17.0
+version=1.18.0
 revision=1
 build_style=go
 go_ldflags="-X github.com/Dreamacro/clash/constant.Version=${version}"
@@ -11,7 +11,7 @@ maintainer="xiarenfan <xiarenfan1998@onionmail.com>"
 license="GPL-3.0-only"
 homepage="https://github.com/Dreamacro/clash"
 distfiles="https://github.com/Dreamacro/clash/archive/v${version}.tar.gz"
-checksum="cd30a27f801652151eea129e9cb00e4a3ee28d45982dad835f4546691796d9d7"
+checksum="139794f50d3d94f438bab31a993cf25d7cbdf8ca8e034f3071e0dd0014069692"
 
 case "$XBPS_TARGET_MACHINE" in
 	x86_64*)

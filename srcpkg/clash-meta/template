@@ -1,6 +1,6 @@
 # Template file for 'clash-meta'
 pkgname=clash-meta
-version=1.15.0
+version=1.16.0
 revision=1
 build_style=go
 go_ldflags="linkmode external -extldflags \"${LDFLAGS}\" \
@@ -14,7 +14,7 @@ maintainer="xiarenfan <xiarenfan1998@onionmail.com>"
 license="GPL-3.0-or-later"
 homepage="https://github.com/MetaCubeX/Clash.Meta"
 distfiles="${homepage}/archive/refs/tags/v${version}.tar.gz"
-checksum=8782da4201e29c3fd2c0d11021f6cc231a275ff0b0400d800b553d7cb191baf1
+checksum=037f926369ac9a0922801f1b0a8e2d79d454e67f6bc2a1e4ca7a52a0a8c641ea
 
 do_build() {
     BUILDTIME=$(date -u)

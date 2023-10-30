@@ -1,6 +1,6 @@
 # Template file for 'v2rayA'
 pkgname=v2rayA
-version=2.0.5
+version=2.2.4
 revision=1
 build_wrksrc="service"
 build_style="go"
@@ -13,7 +13,7 @@ maintainer="xiarenfan <xiarenfan1998@onionmail.com>"
 license="AGPL-3.0-only"
 homepage="https://github.com/v2rayA/v2rayA"
 distfiles="https://github.com/v2rayA/v2rayA/archive/v${version}.tar.gz"
-checksum="a454f382bf199f939e4930c1ee260b212ad66e04fa5dcf9065bb92dd2be274fe"
+checksum="844da2a4c1ac1f7eae02519a0833255a63938f08a554cbea043606b28ee6ebed"
 
 pre_build() {
 	cd ${wrksrc}/gui
