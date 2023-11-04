@@ -13,7 +13,7 @@ maintainer="xiarenfan <xiarenfan1998@onionmail.com>"
 license="AGPL-3.0-only"
 homepage="https://github.com/v2rayA/v2rayA"
 distfiles="https://github.com/v2rayA/v2rayA/archive/v${version}.tar.gz"
-checksum="844da2a4c1ac1f7eae02519a0833255a63938f08a554cbea043606b28ee6ebed"
+checksum=b574823e51d9b2eac8cf7e1421753a2fdd24035627fcda492bdaf7eb0e6144f3
 
 pre_build() {
 	cd ${wrksrc}/gui

@@ -1,0 +1,35 @@
+# Template file for 'xray'
+pkgname=xray
+version=1.8.4
+revision=1
+build_style=go
+go_mod_mode="pie -trimpath"
+go_ldflags="-linkmode=external"
+go_import_path="github.com/XTLS/Xray-core"
+hostmakedepends=""
+makedepends="go"
+depends="xray-domain-list-community xray-geoip"
+provides="v2ray"
+short_desc="The best v2ray-core, with XTLS support"
+maintainer="haninfang <xiarenfan@tutanota.com>"
+license="MPL-2.0"
+homepage="https://github.com/XTLS/Xray-core"
+#changelog=""
+distfiles="${homepage}/archive/v${version}.tar.gz"
+checksum=89f73107abba9bd438111edfe921603ddb3c2b631b2716fbdc6be78552f0d322
+
+do_build() {
+    export CGO_LDFLAGS="${LDFLAGS}"
+    export CGO_CFLAGS="${CFLAGS}"
+    export CGO_CPPFLAGS="${CPPFLAGS}"
+    go build -o xray ./main
+}
+
+do_install() {
+    vbin xray
+    vlicense LICENSE
+}
+
+do_check() {
+    go test -p 1 -tags json -v -timeout 30m github.com/xtls/xray-core/core/...
+}

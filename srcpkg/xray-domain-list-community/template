@@ -1,0 +1,22 @@
+# Template file for 'xray-domain-list-community'
+pkgname=xray-domain-list-community
+version=20231031055637
+revision=1
+build_style=go
+go_import_path="github.com/v2fly/domain-list-community"
+makedepends="go"
+short_desc="A list of domains to be used as geosites for routing purpose in Project V"
+maintainer="haninfang <xiarenfan@tutanota.com>"
+license="MIT"
+homepage="https://github.com/v2fly/domain-list-community"
+distfiles="${homepage}/archive/${version}.tar.gz"
+checksum=98c8d32e3843c3b8a7b5f253bf1183b9da6fe214448a84454b3bd236ac7ad1d4
+
+do_build() {
+    go run main.go
+}
+
+do_install() {
+    vinstall dlc.dat 644 usr/share/xray/geosite.dat
+    vlicense LICENSE
+}
