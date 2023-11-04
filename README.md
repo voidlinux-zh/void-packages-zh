@@ -11,6 +11,8 @@
 | go-musicfox                  | 网易云音乐命令行第三方客户端      | 客户端开源、服务端闭源  |
 | clash-geoip                  | 部分代理软件依赖的 GeoLite2 数据 | ？                   |
 | clash-meta                   | 代理软件                       | 开源                 |
+| font-iming-ttf       | I.Ming ( I.明體 / 一點明體 / 一点明朝 / 一点明体 ) | 开源          |
+| fcitx5-pinyin-zhwiki | fcitx5 维基百科词条词库                      | 开源          |
 
 ## 如何使用
 
