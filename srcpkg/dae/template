@@ -1,0 +1,30 @@
+# Template file for 'dae'
+pkgname=dae
+version=0.3.0
+revision=1
+build_style=go
+go_import_path="github.com/daeuniverse/dae"
+go_mod_mode="pie -trimpath -modcacherw"
+makedepends="clang go"
+depends="xray-geoip xray-domain-list-community"
+short_desc="A Linux lightweight and high-performance transparent proxy solution based on eBPF."
+maintainer="haninfang <xiarenfan@tutanota.com>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/daeuniverse/dae"
+distfiles="https://github.com/daeuniverse/dae/releases/download/v${version}/dae-full-src.zip"
+checksum=843a9cb8a647ba3464e30d531a2f9ede38ffc25dbcfbf55d0ea2ecdce6d34558
+
+do_build() {
+    export GOFLAGS="-buildmode=${go_mod_mode}"
+    export CFLAGS="-fno-stack-protector"
+    make VERSION="${version}" 
+}
+
+do_install() {
+    vbin dae
+    vinstall "install/empty.dae" 0640 etc/dae/config.dae
+    vinstall "example.dae" 0644 etc/dae/config.dae.example
+    vmkdir usr/share/dae
+    ln -vs ${DESTDIR}/usr/share/xray/geoip.dat ${DESTDIR}/usr/share/dae/geoip.dat
+    ln -vs ${DESTDIR}/usr/share/xray/geosite.dat ${DESTDIR}/usr/share/dae/geosite.dat
+}
