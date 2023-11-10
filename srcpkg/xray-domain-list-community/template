@@ -1,6 +1,6 @@
 # Template file for 'xray-domain-list-community'
 pkgname=xray-domain-list-community
-version=20231031055637
+version=20231107072417
 revision=1
 build_style=go
 go_import_path="github.com/v2fly/domain-list-community"
@@ -10,7 +10,7 @@ maintainer="haninfang <xiarenfan@tutanota.com>"
 license="MIT"
 homepage="https://github.com/v2fly/domain-list-community"
 distfiles="${homepage}/archive/${version}.tar.gz"
-checksum=98c8d32e3843c3b8a7b5f253bf1183b9da6fe214448a84454b3bd236ac7ad1d4
+checksum=1628b14200f769401dcbf267e086b4b3d02b01a7afe7da4a1a008d48e3749462
 
 do_build() {
     go run main.go

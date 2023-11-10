@@ -1,7 +1,4 @@
 #!/bin/sh
 
 export XDG_DATA_HOME="/usr/share"
-
-exec /usr/bin/v2rayA
-
-
+exec /usr/bin/v2rayA 2>&1

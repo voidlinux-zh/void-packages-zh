@@ -1,6 +1,6 @@
 # Template file for 'electron-netease-cloud-music'
 pkgname=electron-netease-cloud-music
-version=0.9.36
+version=0.9.38
 revision=1
 _electron_ver=19
 makedepends="yarn"
@@ -10,7 +10,7 @@ maintainer="xiarenfan <xiarenfan1998@onionmail.com>"
 license="GPL3"
 homepage="https://github.com/Rocket1184/electron-netease-cloud-music"
 distfiles="https://github.com/Rocket1184/electron-netease-cloud-music/archive/v${version}.tar.gz"
-checksum=d37127180819e8bd9acd93611a12c7e3e026b3c8c09a3fed30e7a80a6864a9a7
+checksum=01a20c85918fcb780cc361df238ddc2fc3255bf10e12f24b1a88fb85b3598e41
 
 
 do_build() {

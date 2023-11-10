@@ -6,7 +6,6 @@ build_style=go
 go_mod_mode="pie -trimpath"
 go_ldflags="-linkmode=external"
 go_import_path="github.com/XTLS/Xray-core"
-hostmakedepends=""
 makedepends="go"
 depends="xray-domain-list-community xray-geoip"
 provides="v2ray"
@@ -14,7 +13,6 @@ short_desc="The best v2ray-core, with XTLS support"
 maintainer="haninfang <xiarenfan@tutanota.com>"
 license="MPL-2.0"
 homepage="https://github.com/XTLS/Xray-core"
-#changelog=""
 distfiles="${homepage}/archive/v${version}.tar.gz"
 checksum=89f73107abba9bd438111edfe921603ddb3c2b631b2716fbdc6be78552f0d322
 
