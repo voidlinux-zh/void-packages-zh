@@ -22,29 +22,16 @@
 # xbps-install -S xtools
 ```
 
-请先克隆 `xbps_src`：
+请克隆此仓库：
 
 ```
-$ git clone https://github.com/void-linux/void-packages.git --depth 1
-```
-
-如果网络不好可以使用：
-
-```
-$ git clone https://hub.nuaa.cf/void-linux/void-packages.git
-```
-
-再克隆此仓库：
-
-```
-$ git clone https://github.com/voidlinux-zh-association/void-packages-zh
+$ git clone --depth 1 https://github.com/voidlinux-zh/void-packages-zh
 ```
 
 然后选择软件包进行编译：
 
 ```
-$ cp -a void-packages-zh/srcpkg/软件包名 void-packages/srcpkgs/
-$ cd void-packages
+$ cd void-packages-zh
 $ ./xbps-src binary-bootstrap
 $ ./xbps_src pkg 软件包名
 ```
@@ -52,7 +39,7 @@ $ ./xbps_src pkg 软件包名
 编译完了，就可以安装了：
 
 ```
-$ xi 软件包名 #确保是在 void-packages 目录中
+$ xi 软件包名 #确保是在 void-packages-zh 目录中
 ```
 
 # 其他资源
