@@ -1,0 +1,2 @@
+#!/bin/sh
+exec sing-box -D /var/lib/sing-box -C /etc/sing-box run 2>&1

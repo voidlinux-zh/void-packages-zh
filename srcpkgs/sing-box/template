@@ -1,0 +1,50 @@
+# Template file for 'sing-box'
+pkgname=sing-box
+version=1.6.5
+revision=1
+build_style=go
+go_import_path="github.com/SagerNet/sing-box"
+go_ldflags="github.com/sagernet/sing-box/constant.Version=${version}"
+hostmakedepends=""
+makedepends="go"
+depends="sing-geosite sing-geoip"
+short_desc="The universal proxy platform."
+maintainer="haninfang <xiarenfan@tutanota.com>"
+license="GPL-3.0-or-later"
+homepage="https://sing-box.sagernet.org/"
+distfiles="https://github.com/SagerNet/sing-box/archive/v${version}.tar.gz"
+checksum="a9a8f0ed22c566bfe7cabcbe947384639e7e0eb6f5f287c2b8c7c9d27820e289"
+_tags="with_gvisor,with_quic,with_wireguard,with_utls,with_reality_server,with_clash_api,with_ech"
+
+do_build() {
+    export CGO_CPPFLAGS="$CPPFLAGS"
+    export CGO_CFLAGS="$CFLAGS"
+    export CGO_CXXFLAGS="$CXXFLAGS"
+    export CGO_LDFLAGS="$LDFLAGS"
+
+    go build \
+        -v \
+        -trimpath \
+        -buildmode=pie \
+        -mod=readonly \
+        -modcacherw \
+        -tags "$_tags" \
+        -ldflags "
+            -X \"${go_ldflags}\"
+            -s -w -buildid= -linkmode=external" \
+        ./cmd/sing-box
+    
+    install -d completions
+    go run ./cmd/sing-box completion bash   > completions/bash
+    go run ./cmd/sing-box completion fish   > completions/fish
+    go run ./cmd/sing-box completion zsh    > completions/zsh
+}
+
+do_install() {
+    vlicense LICENSE
+    vbin ${pkgname}
+    vinstall "release/config/config.json" 644 etc/${pkgname}/
+    vinstall "completions/bash" 644 usr/share/bash-completion/completions/${pkgname}.bash
+    vinstall "completions/fish" 644 usr/share/fish/vendor_completions.d/${pkgname}.fish
+    vinstall "completions/zsh" 644 usr/share/zsh/site-functions/_${pkgname}
+}

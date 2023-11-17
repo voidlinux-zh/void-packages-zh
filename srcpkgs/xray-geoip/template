@@ -1,6 +1,6 @@
 # Template file for 'xray-geoip'
 pkgname=xray-geoip
-version=202311090038
+version=202311160040
 revision=1
 short_desc="GeoIP List for Xray"
 maintainer="xiarenfan <xiarenfan1998@onionmail.com>"
