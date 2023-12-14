@@ -1,4 +1,0 @@
-#!/usr/bin/sh
-#finish script
-
-setcap -r /usr/bin/clash
