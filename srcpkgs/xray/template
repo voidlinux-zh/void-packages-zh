@@ -1,6 +1,6 @@
 # Template file for 'xray'
 pkgname=xray
-version=1.8.5
+version=1.8.6
 revision=1
 build_style=go
 go_mod_mode="pie -trimpath"
@@ -14,7 +14,7 @@ maintainer="haninfang <xiarenfan@tutanota.com>"
 license="MPL-2.0"
 homepage="https://github.com/XTLS/Xray-core"
 distfiles="${homepage}/archive/v${version}.tar.gz"
-checksum=5d87cb5d1a0a72a8ca654a29beb2cc0a015a38e3e31ac40a505c6be2c9bd0454
+checksum=d828296c9f29f9e59a61ab73d44f072ab2a30fe979679e39aea43b33ddb7d6bf
 
 do_build() {
     export CGO_LDFLAGS="${LDFLAGS}"
