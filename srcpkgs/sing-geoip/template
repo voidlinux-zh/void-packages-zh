@@ -1,6 +1,6 @@
 # Template file for 'sing-geoip'
 pkgname=sing-geoip
-version=20231212
+version=20231112
 revision=1
 short_desc="sing-geoip database"
 maintainer="xiarenfan <xiarenfan1998@onionmail.com>"

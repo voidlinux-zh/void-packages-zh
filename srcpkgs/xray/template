@@ -1,6 +1,6 @@
 # Template file for 'xray'
 pkgname=xray
-version=1.8.6
+version=1.8.5
 revision=1
 build_style=go
 go_mod_mode="pie -trimpath"
