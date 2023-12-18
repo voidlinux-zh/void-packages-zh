@@ -1,6 +1,6 @@
 # Template file for 'sing-box'
 pkgname=sing-box
-version=1.7.2
+version=1.7.5
 revision=1
 build_style=go
 go_import_path="github.com/SagerNet/sing-box"
@@ -13,7 +13,7 @@ maintainer="haninfang <xiarenfan@tutanota.com>"
 license="GPL-3.0-or-later"
 homepage="https://sing-box.sagernet.org/"
 distfiles="https://github.com/SagerNet/sing-box/archive/v${version}.tar.gz"
-checksum="74bbe97b0f8df19c1196deda4ad53edc75c57259f51f88391d66071a315829d7"
+checksum="467373705604cb9cbf9c8363b0cec93aeb66b8de02742d96304f91181f5fbb5e"
 _tags="with_gvisor,with_quic,with_wireguard,with_utls,with_reality_server,with_clash_api,with_ech"
 
 do_build() {

@@ -1,5 +1,0 @@
-#!/bin/sh
-
-sv check NetworkManager >/dev/null || exit 1
-setcap cap_net_bind_service,cap_net_admin+ep /usr/bin/clash
-exec clash-meta 2>&1

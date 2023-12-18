@@ -1,4 +1,4 @@
 #!/usr/bin/sh
 #finish script
 
-setcap -r /usr/bin/clash-meta
+setcap -r /usr/bin/mihomo
