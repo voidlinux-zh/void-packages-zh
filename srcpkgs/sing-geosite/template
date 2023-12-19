@@ -1,6 +1,6 @@
 # Template file for 'sing-geosite'
 pkgname=sing-geosite
-version=20231212122459
+version=20231215153121
 revision=1
 short_desc="sing-geosite database"
 maintainer="xiarenfan <xiarenfan1998@onionmail.com>"

@@ -1,0 +1,35 @@
+# Template file for 'mihomo'
+pkgname=mihomo
+version=1.17.0
+revision=1
+build_style=go
+go_ldflags="linkmode external -extldflags \"${LDFLAGS}\" \
+    -X \"github.com/MetaCubeX/mihomo/constant.Version=${pkgver}\" \
+    -X \"github.com/MetaCubeX/mihomo/constant.BuildTime=${BUILDTIME}\" \
+    " \
+go_import_path="github.com/MetaCubeX/mihomo"
+makedepends="go clash-geoip"
+depends="clash-geoip"
+short_desc="Another Mihomo Kernel by MetaCubeX"
+maintainer="xiarenfan <xiarenfan1998@onionmail.com>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/MetaCubeX/mihomo"
+distfiles="${homepage}/archive/refs/tags/v${version}.tar.gz"
+checksum=0c6f2c073189211aaa5a6ce8019f1c3f421bc4cdc1e46217a0a76912c6a38927
+
+do_build() {
+    BUILDTIME=$(date -u)
+    GOOS=linux CGO_ENABLED=0 go build \
+    -trimpath \
+    -buildmode=pie \
+    -mod=readonly \
+    -modcacherw \
+    -ldflags "${go_ldflags}" \
+    -tags with_gvisor -o ${pkgname}-${version}
+}
+
+do_install() {
+	vbin ${pkgname}-${version} mihomo
+    vsv mihomo
+    vinstall "${FILESDIR}/config.yaml" 644 etc/mihomo
+}

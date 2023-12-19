@@ -11,7 +11,7 @@ homepage="https://github.com/ichitenfont/I.Ming"
 font_dirs="/usr/share/fonts/TTF"
 
 do_fetch() {
-    wget ${homepage}/blob/master/${version}/I.Ming-${version}.ttf
+    wget ${homepage}/raw/master/${version}/I.Ming-${version}.ttf
 }
 
 do_install() { 
