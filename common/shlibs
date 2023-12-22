@@ -16,6 +16,15 @@
 # PLEASE NOTE: when multiple packages provide the same SONAME, the first
 # one (order top->bottom) is preferred over the next ones.
 #
+
+
+# Custom Start
+
+# netease-cloud-music-gtk
+libgstplay-1.0.so.0 gst-plugins-bad1-1.22.7_1
+
+# Custom End
+
 libc.so musl-1.1.24_7
 libc.so.6 glibc-2.36_1
 libm.so.6 glibc-2.36_1

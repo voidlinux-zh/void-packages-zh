@@ -1,0 +1,20 @@
+# Template file for 'clash-rs'
+pkgname=clash-rs
+version=0.1.10
+revision=1
+build_style=cargo
+hostmakedepends="pkg-config git cmake go clang"
+depends="clash-geoip"
+short_desc="A custom protocol, rule based network proxy software."
+maintainer="madoka773 <valigarmanda55@gmail.com>"
+license="Apache-2.0"
+homepage="https://github.com/Watfaq/clash-rs"
+
+do_fetch() {
+	git clone https://github.com/Watfaq/clash-rs.git --recursive --branch=v${version} --depth=1 ${pkgname}-${version}
+}
+
+do_install() {
+	vbin target/${RUST_TARGET}/release/clash clash-rs
+	vlicense LICENSE
+}

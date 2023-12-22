@@ -2,12 +2,12 @@
 pkgname=electron-netease-cloud-music
 version=0.9.38
 revision=1
-_electron_ver=19
+_electron_ver=24
 makedepends="yarn"
 depends="electron${_electron_ver}"
 short_desc="UNOFFICIAL client for music.163.com . Powered by Electron, Vue, and Muse-UI."
 maintainer="xiarenfan <xiarenfan1998@onionmail.com>"
-license="GPL3"
+license="GPL-3.0-or-later"
 homepage="https://github.com/Rocket1184/electron-netease-cloud-music"
 distfiles="https://github.com/Rocket1184/electron-netease-cloud-music/archive/v${version}.tar.gz"
 checksum=01a20c85918fcb780cc361df238ddc2fc3255bf10e12f24b1a88fb85b3598e41
@@ -24,11 +24,11 @@ do_install() {
 	vcopy dist /usr/lib/${pkgname}
 	cat > electron-netease-cloud-music <<-EOF
 	#!/bin/sh
-	exec electron${_electron_ver} /usr/lib/${pkgname}.asar "\$@"
+	exec electron${_electron_ver} /usr/lib/${pkgname}/app.asar "\$@"
 	EOF
 	vbin electron-netease-cloud-music
 	vinstall "${FILESDIR}/electron-netease-cloud-music.desktop" 644 usr/share/applications
-	vinstall "assets/icons/icon.png" 644 usr/share/icons/hicolor/scalable/apps
+	vinstall "assets/icons/icon.svg" 644 usr/share/icons/hicolor/scalable/apps ${pkgname}.svg
 	vlicense LICENSE
-	vinstall "build/Electron NCM-linux-x64/resources/app.asar" 644 /usr/lib ${pkgname}.asar
+	vinstall "build/Electron NCM-linux-x64/resources/app.asar" 644 usr/lib/${pkgname}/app.asar
 }
