@@ -13,5 +13,5 @@ do_fetch() {
 }
 
 do_install() {
-    vinstall "${XBPS_BUILDDIR}/Country.mmdb" 0644 etc/clash/Country.mmdb
+    vinstall "${XBPS_BUILDDIR}/Country.mmdb" 0644 etc/clash
 }

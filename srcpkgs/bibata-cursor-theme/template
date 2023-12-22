@@ -1,0 +1,20 @@
+# Template file for 'bibata-cursor-theme'
+pkgname=bibata-cursor-theme
+version=2.0.4
+revision=1
+short_desc="Open source, compact, and material designed cursor set."
+maintainer="madoka773 <valigarmanda55@gmail.com>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/ful1e5/Bibata_Cursor"
+distfiles="https://github.com/ful1e5/Bibata_Cursor/releases/download/v${version}/Bibata.tar.xz"
+checksum=af21e99d6bdda372e24ed8734f21e9fd6f09fcf9d6f1f47d0043dcd8c1e00959
+
+do_install() {
+	vmkdir usr/share/icons
+	vcopy Bibata-Modern-Ice usr/share/icons
+	vcopy Bibata-Modern-Amber usr/share/icons
+	vcopy Bibata-Modern-Classic usr/share/icons
+	vcopy Bibata-Original-Ice usr/share/icons
+	vcopy Bibata-Original-Amber usr/share/icons
+	vcopy Bibata-Original-Classic usr/share/icons
+}

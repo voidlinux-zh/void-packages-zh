@@ -1,0 +1,53 @@
+# Template file for 'clash-nyanpasu'
+pkgname=clash-nyanpasu
+version=1.4.1
+revision=1
+# used for the cargo environment config
+build_style=cargo
+hostmakedepends="cargo-tauri nodejs pkg-config pnpm sed quickjs wget mihomo clash-rs clash-geoip"
+makedepends="dbus-devel gtk+3-devel libappindicator-devel libsoup-devel openssl-devel webkit2gtk-devel"
+depends="libappindicator clash-rs mihomo openssl webkit2gtk"
+short_desc="A Clash GUI based on tauri.Clash Nyanpasu! (∠・ω< )⌒☆​"
+maintainer="madoka773 <valigarmanda55@gmail.com>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/keiko233/clash-nyanpasu"
+changelog="https://raw.githubusercontent.com/keiko233/clash-nyanpasu/main/UPDATELOG.md"
+distfiles="https://github.com/keiko233/clash-nyanpasu/archive/refs/tags/v${version}.tar.gz"
+checksum=217745319411d50e14796c745035c942b256424c3fe2370e608e97f20e7dd7b5
+
+pre_build() {
+	sed -i 's/"targets": "all"/"targets": "deb"/g' backend/tauri/tauri.conf.json
+	sed -i '58s/"active": true,/"active": false,/' backend/tauri/tauri.conf.json
+
+	# pnpm check is broken
+	mkdir -p backend/tauri/sidecar
+	ln -sf /usr/bin/mihomo backend/tauri/sidecar/clash-${RUST_TARGET}
+	ln -sf /usr/bin/clash-rs backend/tauri/sidecar/clash-rs-${RUST_TARGET}
+	ln -sf /usr/bin/mihomo backend/tauri/sidecar/clash-meta-${RUST_TARGET}
+	
+	mkdir -p backend/tauri/resources
+	ln -sf /etc/clash/Country.mmdb backend/tauri/resources/Country.mmdb
+}
+
+do_build() {
+	export RUSTFLAGS="-L /usr/lib/quickjs"
+	pnpm i
+	pnpm build
+}
+
+do_install() {
+	
+	local _deb_arch
+	case "${XBPS_TARGET_MACHINE}" in
+		x86_64*) _deb_arch=amd64 ;;
+		i686*) _deb_arch=i386 ;;
+		aarch64*) _deb_arch=arm64 ;;
+		armv*) _deb_arch=armhf ;;
+	esac
+
+	vbin backend/target/release/bundle/deb/${pkgname}_${version}_${_deb_arch}/data/usr/bin/clash-nyanpasu
+	vcopy backend/target/release/bundle/deb/${pkgname}_${version}_${_deb_arch}/data/usr/share usr
+	vmkdir usr/lib/clash-nyanpasu/resources
+	ln -svf /etc/clash/Country.mmdb ${DESTDIR}/usr/lib/clash-nyanpasu/resources/
+	vlicense LICENSE
+}

@@ -1,0 +1,20 @@
+# Template file for 'fonts-iming-ttf'
+pkgname=fonts-iming-ttf
+version=8.00
+revision=1
+makedepends="wget"
+depends="font-util"
+short_desc="A serif font inculdes almost all CJK characters"
+maintainer="madoka773 <valigarmanda55@gmail.com>"
+license="IPA"
+homepage="https://github.com/ichitenfont/I.Ming"
+changelog="https://raw.githubusercontent.com/ichitenfont/I.Ming/master/${version}/I.Ming_history.md"
+distfiles="https://github.com/ichitenfont/I.Ming/archive/refs/tags/${version}.tar.gz"
+checksum="68c1dea1c3368bb7cf18d3570ad796d2e4422b6c17037120179cc14a8debea77"
+font_dirs="/usr/share/fonts/iming"
+
+do_install() {
+	vmkdir usr/share/fonts/iming
+	vcopy "${version}/*.ttf" usr/share/fonts/iming
+    vlicense LICENSE.md
+}

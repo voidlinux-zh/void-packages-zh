@@ -1,7 +1,8 @@
 # Template file for 'fcitx5-pinyin-zhwiki'
 pkgname=fcitx5-pinyin-zhwiki
-version_date=20231205
-version=0.2.4
+_webslangver=20231205
+_converterver=0.2.4
+version=${_converterver}.${_webslangver}
 revision=1
 short_desc="Fcitx 5 Pinyin Dictionary from zh.wikipedia.org"
 maintainer="FUUSOUKEN HAYATE <freev88@tutanota.com>"
@@ -11,9 +12,9 @@ homepage="https://github.com/felixonmars/fcitx5-pinyin-zhwiki"
 depends="fcitx5 fcitx5-chinese-addons"
 
 do_fetch() {
-    wget ${homepage}/releases/download/${version}/zhwiki-${version_date}.dict
+    wget ${homepage}/releases/download/${_converterver}/zhwiki-${_webslangver}.dict
 }
 
 do_install() {
-    vinstall "${XBPS_BUILDDIR}/zhwiki-${version_date}.dict" 0644 usr/share/fcitx5/pinyin/dictionaries/zhwiki.dict
+    vinstall "${XBPS_BUILDDIR}/zhwiki-${_webslangver}.dict" 0644 usr/share/fcitx5/pinyin/dictionaries/zhwiki.dict
 }

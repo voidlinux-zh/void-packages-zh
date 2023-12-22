@@ -1,0 +1,14 @@
+# Template file for 'netease-cloud-music-gtk'
+pkgname=netease-cloud-music-gtk
+version=2.3.0
+revision=1
+build_style=meson
+short_desc="Linux 平台下基于 Rust + GTK 开发的网易云音乐播放器"
+maintainer="madoka773 <valigarmanda55@gmail.com>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/gmg137/netease-cloud-music-gtk"
+distfiles="https://github.com/gmg137/netease-cloud-music-gtk/archive/refs/tags/${version}.tar.gz"
+checksum="490abb90327464a9e854d9951dda95d07cb6e6724d5fa37e799284909e494fbc"
+hostmakedepends="meson cmake ninja rust cargo dbus openssl pkg-config gettext gtk4-update-icon-cache desktop-file-utils"
+makedepends="dbus-devel gtk4-devel gdk-pixbuf-devel libadwaita-devel openssl-devel gstreamer1-devel gst-plugins-base1-devel gst-plugins-bad1-devel"
+depends="gtk4 libadwaita openssl gstreamer1 gst-plugins-base1 gst-plugins-good1 gst-plugins-bad1 gst-plugins-ugly1"
