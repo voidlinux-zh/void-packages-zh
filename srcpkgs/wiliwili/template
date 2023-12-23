@@ -21,7 +21,7 @@ configure_args="-DPLATFORM_DESKTOP:BOOL=ON
     -DUSE_SYSTEM_TINYXML2:BOOL=ON
     -DUSE_SYSTEM_SDL2:BOOL=ON
     -DUSE_SYSTEM_MONGOOSE:BOOL=ON"
-hostmakedepends="pkg-config cmake ninja git gcc"
+hostmakedepends="pkg-config cmake ninja git"
 makedepends="mpv-devel libwebp-devel libcurl-devel SDL2-devel opencc-devel mongoose-devel tinyxml2-devel pystring-devel fmt-devel"
 depends="mpv libwebp curl SDL2 opencc mongoose tinyxml2 pystring fmt"
 
