@@ -5,8 +5,7 @@ revision=1
 build_style=go
 go_import_path="github.com/SagerNet/sing-box"
 go_ldflags="github.com/sagernet/sing-box/constant.Version=${version}"
-hostmakedepends=""
-makedepends="go"
+hostmakedepends="go"
 depends="sing-geosite sing-geoip"
 short_desc="The universal proxy platform."
 maintainer="haninfang <xiarenfan@tutanota.com>"
@@ -21,7 +20,6 @@ do_build() {
     export CGO_CFLAGS="$CFLAGS"
     export CGO_CXXFLAGS="$CXXFLAGS"
     export CGO_LDFLAGS="$LDFLAGS"
-
     go build \
         -v \
         -trimpath \
@@ -33,7 +31,6 @@ do_build() {
             -X \"${go_ldflags}\"
             -s -w -buildid= -linkmode=external" \
         ./cmd/sing-box
-    
     install -d completions
     go run ./cmd/sing-box completion bash   > completions/bash
     go run ./cmd/sing-box completion fish   > completions/fish

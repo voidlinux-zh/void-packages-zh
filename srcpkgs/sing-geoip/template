@@ -7,7 +7,7 @@ maintainer="xiarenfan <xiarenfan1998@onionmail.com>"
 license="GPL-3.0-or-later"
 makedepends="wget"
 _repo="SagerNet/${pkgname}"
-homepage="https://github.com/${_repo}"
+homepage="https://github.com/SagerNet/sing-geoip"
 
 do_fetch() {
     wget ${homepage}/releases/download/${version}/geoip-cn.db

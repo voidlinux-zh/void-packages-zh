@@ -30,5 +30,5 @@ do_install() {
 	vinstall "${FILESDIR}/electron-netease-cloud-music.desktop" 644 usr/share/applications
 	vinstall "assets/icons/icon.svg" 644 usr/share/icons/hicolor/scalable/apps ${pkgname}.svg
 	vlicense LICENSE
-	vinstall "build/Electron NCM-linux-x64/resources/app.asar" 644 usr/lib/${pkgname}/app.asar
+	vinstall "build/Electron NCM-linux-x64/resources/app.asar" 644 usr/lib/${pkgname}
 }
