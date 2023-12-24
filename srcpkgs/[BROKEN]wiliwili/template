@@ -1,0 +1,34 @@
+# Template file for 'wiliwili'
+# Build Failed!!!
+# Need Help!!!
+pkgname=wiliwili
+version=1.2.2
+revision=1
+build_style=cmake
+short_desc="A third-party Bilibili client designed specifically for controller users."
+maintainer="madoka773 <valigarmanda55@gmail.com>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/xfangfang/wiliwili"
+configure_args="-DPLATFORM_DESKTOP:BOOL=ON
+	-DINSTALL:BOOL=ON
+	-DCMAKE_BUILD_TYPE=Release
+	-DGLFW_BUILD_WAYLAND:BOOL=ON
+	-DGLFW_BUILD_X11:BOOL=ON
+	-DUSE_SYSTEM_CURL:BOOL=ON
+	-DUSE_SYSTEM_PYSTRING:BOOL=ON
+	-DUSE_SYSTEM_OPENCC:BOOL=ON
+	-DUSE_SYSTEM_FMT:BOOL=ON
+	-DUSE_SYSTEM_TINYXML2:BOOL=ON
+	-DUSE_SYSTEM_SDL2:BOOL=ON
+	-DUSE_SYSTEM_MONGOOSE:BOOL=ON"
+hostmakedepends="pkg-config cmake ninja git"
+makedepends="mpv-devel libwebp-devel libcurl-devel SDL2-devel opencc-devel mongoose-devel tinyxml2-devel pystring-devel fmt-devel"
+depends="mpv libwebp curl SDL2 opencc mongoose tinyxml2 pystring fmt"
+
+do_fetch() {
+	git clone https://github.com/xfangfang/wiliwili.git --recursive --branch=v${version} --depth=1 ${pkgname}-${version}
+}
+
+post_install() {
+	vlicense LICENSE
+}

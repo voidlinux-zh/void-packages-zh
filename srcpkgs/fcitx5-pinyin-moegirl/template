@@ -10,9 +10,9 @@ homepage="https://github.com/outloudvi/mw2fcitx"
 depends="fcitx5 fcitx5-chinese-addons"
 
 do_fetch() {
-    wget ${homepage}/releases/download/${version}/moegirl.dict
+	wget ${homepage}/releases/download/${version}/moegirl.dict
 }
 
 do_install() {
-    vinstall "${XBPS_BUILDDIR}/moegirl.dict" 0644 usr/share/fcitx5/pinyin/dictionaries/moegirl.dict
+	vinstall "${XBPS_BUILDDIR}/moegirl.dict" 0644 usr/share/fcitx5/pinyin/dictionaries/moegirl.dict
 }

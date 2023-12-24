@@ -9,9 +9,9 @@ makedepends="wget"
 homepage="https://github.com/Dreamacro/maxmind-geoip"
 
 do_fetch() {
-    wget ${homepage}/releases/download/${version}/Country.mmdb
+	wget ${homepage}/releases/download/${version}/Country.mmdb
 }
 
 do_install() {
-    vinstall "${XBPS_BUILDDIR}/Country.mmdb" 0644 etc/clash
+	vinstall "${XBPS_BUILDDIR}/Country.mmdb" 0644 etc/clash
 }

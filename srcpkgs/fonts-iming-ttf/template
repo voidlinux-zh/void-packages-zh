@@ -16,5 +16,5 @@ font_dirs="/usr/share/fonts/iming"
 do_install() {
 	vmkdir usr/share/fonts/iming
 	vcopy "${version}/*.ttf" usr/share/fonts/iming
-    vlicense LICENSE.md
+	vlicense LICENSE.md
 }

@@ -6,7 +6,7 @@ build_style=go
 go_mod_mode="pie -trimpath"
 go_ldflags="-linkmode=external"
 go_import_path="github.com/XTLS/Xray-core"
-makedepends="go"
+hostmakedepends="go"
 depends="xray-domain-list-community xray-geoip"
 provides="v2ray"
 short_desc="The best v2ray-core, with XTLS support"
@@ -17,17 +17,17 @@ distfiles="${homepage}/archive/v${version}.tar.gz"
 checksum=d828296c9f29f9e59a61ab73d44f072ab2a30fe979679e39aea43b33ddb7d6bf
 
 do_build() {
-    export CGO_LDFLAGS="${LDFLAGS}"
-    export CGO_CFLAGS="${CFLAGS}"
-    export CGO_CPPFLAGS="${CPPFLAGS}"
-    go build -o xray ./main
+	export CGO_LDFLAGS="${LDFLAGS}"
+	export CGO_CFLAGS="${CFLAGS}"
+	export CGO_CPPFLAGS="${CPPFLAGS}"
+	go build -o xray ./main
 }
 
 do_install() {
-    vbin xray
-    vlicense LICENSE
+	vbin xray
+	vlicense LICENSE
 }
 
 do_check() {
-    go test -p 1 -tags json -v -timeout 30m github.com/xtls/xray-core/core/...
+	go test -p 1 -tags json -v -timeout 30m github.com/xtls/xray-core/core/...
 }

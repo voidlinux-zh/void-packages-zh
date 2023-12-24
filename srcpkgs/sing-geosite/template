@@ -7,14 +7,14 @@ maintainer="xiarenfan <xiarenfan1998@onionmail.com>"
 license="GPL-3.0-or-later"
 makedepends="wget"
 _repo="SagerNet/${pkgname}"
-homepage="https://github.com/${_repo}"
+homepage="https://github.com/SagerNet/sing-geosite"
 
 do_fetch() {
-    wget ${homepage}/releases/download/${version}/geosite.db
-    wget https://raw.githubusercontent.com/${_repo}/${version}/LICENSE
+	wget ${homepage}/releases/download/${version}/geosite.db
+	wget https://raw.githubusercontent.com/${_repo}/${version}/LICENSE
 }
 
 do_install() {
-    vinstall "${XBPS_BUILDDIR}/geosite.db" 0644 usr/share/${pkgname}/geosite.db
-    vlicense "${XBPS_BUILDDIR}/LICENSE"
+	vinstall "${XBPS_BUILDDIR}/geosite.db" 0644 usr/share/${pkgname}/geosite.db
+	vlicense "${XBPS_BUILDDIR}/LICENSE"
 }

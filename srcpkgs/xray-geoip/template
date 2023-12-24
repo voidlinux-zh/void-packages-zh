@@ -9,11 +9,11 @@ makedepends="wget"
 homepage="https://github.com/v2fly/geoip"
 
 do_fetch() {
-    wget ${homepage}/releases/download/${version}/geoip.dat
-    wget ${homepage}/raw/master/LICENSE
+	wget ${homepage}/releases/download/${version}/geoip.dat
+	wget ${homepage}/raw/master/LICENSE
 }
 
 do_install() {
-    vinstall "${XBPS_BUILDDIR}/geoip.dat" 0644 usr/share/xray/geoip.dat
-    vlicense "${XBPS_BUILDDIR}/LICENSE"
+	vinstall "${XBPS_BUILDDIR}/geoip.dat" 0644 usr/share/xray/geoip.dat
+	vlicense "${XBPS_BUILDDIR}/LICENSE"
 }

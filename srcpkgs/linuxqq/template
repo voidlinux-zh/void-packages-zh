@@ -1,0 +1,37 @@
+# Template file for 'linuxqq'
+pkgname=linuxqq
+_version=3.2.3
+_release=19689
+_commit=5edc39d1
+version=${_version}.${_release}
+revision=1
+archs="x86_64-glibc aarch64-glibc"
+hostmakedepends="wget"
+short_desc="New Linux QQ based on Electron"
+maintainer="madoka773 <valigarmanda55@gmail.com>"
+license="custom"
+homepage="https://im.qq.com/linuxqq/index.shtml"
+changelog="https://im.qq.com/linuxqq/support.html"
+repository=nonfree
+restricted=yes
+
+case "${XBPS_TARGET_MACHINE}" in
+	x86_64) _deb_arch=amd64 ;;
+	aarch64) _deb_arch=arm64 ;;
+esac
+
+do_fetch() {
+	wget https://dldir1.qq.com/qqfile/qq/QQNT/${_commit}/${pkgname}_${_version}-${_release}_${_deb_arch}.deb
+}
+
+do_extract() {
+	ar p "${XBPS_BUILDDIR}/${pkgname}_${_version}-${_release}_${_deb_arch}.deb" data.tar.xz | bsdtar --extract --xz -f - -C .
+}
+
+do_install() {
+	vmkdir usr/bin
+	vmkdir opt
+	ln -s /opt/QQ/qq "${DESTDIR}/usr/bin/qq"
+	vcopy opt/QQ opt
+	vcopy usr/share usr
+}
