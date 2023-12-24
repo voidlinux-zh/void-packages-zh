@@ -30,5 +30,5 @@ do_fetch() {
 }
 
 post_install() {
-	vlicense LICENSE
+    vlicense LICENSE
 }

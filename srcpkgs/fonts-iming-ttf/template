@@ -14,7 +14,7 @@ checksum="68c1dea1c3368bb7cf18d3570ad796d2e4422b6c17037120179cc14a8debea77"
 font_dirs="/usr/share/fonts/iming"
 
 do_install() {
-	vmkdir usr/share/fonts/iming
-	vcopy "${version}/*.ttf" usr/share/fonts/iming
+    vmkdir usr/share/fonts/iming
+    vcopy "${version}/*.ttf" usr/share/fonts/iming
     vlicense LICENSE.md
 }

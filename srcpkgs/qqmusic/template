@@ -14,7 +14,7 @@ repository=nonfree
 restricted=yes
 
 do_fetch() {
-	wget https://test.mini-proxy.mivm.cn/qqmusic-electron/${pkgname}_${version}-${revision}.asar
+    wget https://test.mini-proxy.mivm.cn/qqmusic-electron/${pkgname}_${version}-${revision}.asar
 }
 
 do_extract() {
@@ -23,8 +23,8 @@ do_extract() {
 
 do_install() {
     cat > qqmusic << EOF
-	#!/bin/sh
-	exec electron${_electron_ver} /usr/lib/${pkgname}/app.asar "\$@"
+    #!/bin/sh
+    exec electron${_electron_ver} /usr/lib/${pkgname}/app.asar "\$@"
 EOF
 
     cat > qqmusic.desktop << EOF
@@ -41,9 +41,9 @@ EOF
 EOF
 
     vmkdir usr/share/pixmaps
-	vmkdir usr/lib/${pkgname}
+    vmkdir usr/lib/${pkgname}
     vinstall ${XBPS_BUILDDIR}/${pkgname}_${version}-${revision}.asar 644 usr/lib/${pkgname} app.asar
     vinstall qqmusic.desktop 644 usr/share/applications
     vinstall logo.png 644 usr/share/pixmaps ${pkgname}.png
-	vbin qqmusic
+    vbin qqmusic
 }

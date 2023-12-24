@@ -10,11 +10,11 @@ distfiles="https://github.com/ful1e5/Bibata_Cursor/releases/download/v${version}
 checksum=af21e99d6bdda372e24ed8734f21e9fd6f09fcf9d6f1f47d0043dcd8c1e00959
 
 do_install() {
-	vmkdir usr/share/icons
-	vcopy Bibata-Modern-Ice usr/share/icons
-	vcopy Bibata-Modern-Amber usr/share/icons
-	vcopy Bibata-Modern-Classic usr/share/icons
-	vcopy Bibata-Original-Ice usr/share/icons
-	vcopy Bibata-Original-Amber usr/share/icons
-	vcopy Bibata-Original-Classic usr/share/icons
+    vmkdir usr/share/icons
+    vcopy Bibata-Modern-Ice usr/share/icons
+    vcopy Bibata-Modern-Amber usr/share/icons
+    vcopy Bibata-Modern-Classic usr/share/icons
+    vcopy Bibata-Original-Ice usr/share/icons
+    vcopy Bibata-Original-Amber usr/share/icons
+    vcopy Bibata-Original-Classic usr/share/icons
 }

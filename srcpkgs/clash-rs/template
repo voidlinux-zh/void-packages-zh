@@ -11,10 +11,10 @@ license="Apache-2.0"
 homepage="https://github.com/Watfaq/clash-rs"
 
 do_fetch() {
-	git clone https://github.com/Watfaq/clash-rs.git --recursive --branch=v${version} --depth=1 ${pkgname}-${version}
+    git clone https://github.com/Watfaq/clash-rs.git --recursive --branch=v${version} --depth=1 ${pkgname}-${version}
 }
 
 do_install() {
-	vbin target/${RUST_TARGET}/release/clash clash-rs
-	vlicense LICENSE
+    vbin target/${RUST_TARGET}/release/clash clash-rs
+    vlicense LICENSE
 }
