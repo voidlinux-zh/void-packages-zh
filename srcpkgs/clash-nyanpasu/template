@@ -4,7 +4,7 @@ version=1.4.1
 revision=1
 # used for the cargo environment config
 build_style=cargo
-hostmakedepends="cargo-tauri nodejs pkg-config pnpm sed quickjs wget mihomo clash-rs clash-geoip moreutils clang"
+hostmakedepends="nodejs pkg-config pnpm sed quickjs wget mihomo clash-rs clash-geoip moreutils clang"
 makedepends="dbus-devel gtk+3-devel libappindicator-devel libsoup-devel openssl-devel webkit2gtk-devel"
 depends="libappindicator clash-rs mihomo openssl webkit2gtk"
 short_desc="A Clash GUI based on tauri.Clash Nyanpasu! (∠・ω< )⌒☆​"
