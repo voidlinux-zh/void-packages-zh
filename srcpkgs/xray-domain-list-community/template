@@ -13,10 +13,10 @@ distfiles="${homepage}/archive/${version}.tar.gz"
 checksum=9db6be6d46f506673cee210733e6b69b2625bd430a20860966042dc16775517a
 
 do_build() {
-    go run main.go
+	go run main.go
 }
 
 do_install() {
-    vinstall dlc.dat 644 usr/share/xray/geosite.dat
-    vlicense LICENSE
+	vinstall dlc.dat 644 usr/share/xray/geosite.dat
+	vlicense LICENSE
 }

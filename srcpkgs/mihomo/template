@@ -11,27 +11,27 @@ maintainer="xiarenfan <xiarenfan1998@onionmail.com>"
 license="GPL-3.0-or-later"
 homepage="https://github.com/MetaCubeX/mihomo"
 case "${XBPS_TARGET_MACHINE}" in
-    x86_64*) _mihomo_arch=amd64 ;;
-    i686*) _mihomo_arch=386 ;;
-    aarch64*) _mihomo_arch=arm64 ;;
-    armv6*) _mihomo_arch=armv6 ;;
-    armv7*) _mihomo_arch=armv7 ;;
+	x86_64*) _mihomo_arch=amd64 ;;
+	i686*) _mihomo_arch=386 ;;
+	aarch64*) _mihomo_arch=arm64 ;;
+	armv6*) _mihomo_arch=armv6 ;;
+	armv7*) _mihomo_arch=armv7 ;;
 esac
 
 do_fetch() {
-    git clone https://github.com/MetaCubeX/mihomo.git --recursive --branch=v${version} --depth=1 ${pkgname}-${version}
+	git clone https://github.com/MetaCubeX/mihomo.git --recursive --branch=v${version} --depth=1 ${pkgname}-${version}
 }
 
 do_build() {
-    make linux-${_mihomo_arch}
+	make linux-${_mihomo_arch}
 }
 
 do_install() {
-    vbin bin/${pkgname}-linux-${_mihomo_arch} mihomo
-    vsv mihomo
-    vinstall "${FILESDIR}/config.yaml" 644 etc/mihomo
-    ln -svf /etc/clash/Country.mmdb ${DESTDIR}/etc/mihomo/
-    # compatible for some clash gui apps
-    ln -svf mihomo ${DESTDIR}/usr/bin/clash-meta
-    vlicense LICENSE
+	vbin bin/${pkgname}-linux-${_mihomo_arch} mihomo
+	vsv mihomo
+	vinstall "${FILESDIR}/config.yaml" 644 etc/mihomo
+	ln -svf /etc/clash/Country.mmdb ${DESTDIR}/etc/mihomo/
+	# compatible for some clash gui apps
+	ln -svf mihomo ${DESTDIR}/usr/bin/clash-meta
+	vlicense LICENSE
 }

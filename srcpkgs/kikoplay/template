@@ -11,33 +11,33 @@ makedepends="qt5-websockets-devel mpv-devel"
 depends="mpv aria2 ffmpeg"
 
 do_fetch() {
-    git clone https://github.com/KikoPlayProject/KikoPlay.git  --recursive --branch=${version} --depth=1
-    git clone https://github.com/KikoPlayProject/KikoPlayScript.git  --recursive --depth=1
-    git clone https://github.com/KikoPlayProject/KikoPlayApp.git  --recursive --depth=1
+	git clone https://github.com/KikoPlayProject/KikoPlay.git  --recursive --branch=${version} --depth=1
+	git clone https://github.com/KikoPlayProject/KikoPlayScript.git  --recursive --depth=1
+	git clone https://github.com/KikoPlayProject/KikoPlayApp.git  --recursive --depth=1
 }
 
 do_build() {
-    cmake -B"build-lua53" -S"${XBPS_BUILDDIR}/KikoPlay/Extension/Lua"
-    cd build-lua53
-    make -j$(proc)
-    ln -sf "${XBPS_BUILDDIR}/${pkgname}-${version}/build-lua53/libmyLua53.a" "${XBPS_BUILDDIR}/KikoPlay/lib/x64/linux/liblua53.a"
-    ln -sf "${XBPS_BUILDDIR}/${pkgname}-${version}/build-lua53/libmyLua53.a" "${XBPS_BUILDDIR}/KikoPlay/Extension/Lua/liblua53.a"
+	cmake -B"build-lua53" -S"${XBPS_BUILDDIR}/KikoPlay/Extension/Lua"
+	cd build-lua53
+	make -j$(proc)
+	ln -sf "${XBPS_BUILDDIR}/${pkgname}-${version}/build-lua53/libmyLua53.a" "${XBPS_BUILDDIR}/KikoPlay/lib/x64/linux/liblua53.a"
+	ln -sf "${XBPS_BUILDDIR}/${pkgname}-${version}/build-lua53/libmyLua53.a" "${XBPS_BUILDDIR}/KikoPlay/Extension/Lua/liblua53.a"
 
-    mkdir ${XBPS_BUILDDIR}/${pkgname}-${version}/build
-    cd ${XBPS_BUILDDIR}/${pkgname}-${version}/build
-    qmake ${XBPS_BUILDDIR}/KikoPlay
-    make -j$(proc)
+	mkdir ${XBPS_BUILDDIR}/${pkgname}-${version}/build
+	cd ${XBPS_BUILDDIR}/${pkgname}-${version}/build
+	qmake ${XBPS_BUILDDIR}/KikoPlay
+	make -j$(proc)
 }
 
 do_install() {
-    cd ${XBPS_BUILDDIR}/${pkgname}-${version}/build
-    make install INSTALL_ROOT="${DESTDIR}"
+	cd ${XBPS_BUILDDIR}/${pkgname}-${version}/build
+	make install INSTALL_ROOT="${DESTDIR}"
 }
 
 post_install() {
-    vlicense "${XBPS_BUILDDIR}/KikoPlay/LICENSE"
-    vmkdir usr/share/kikoplay/extension/script
-    vmkdir usr/share/kikoplay/extension/app
-    vcopy "${XBPS_BUILDDIR}/KikoPlayScript/*" usr/share/kikoplay/extension/script
-    vcopy "${XBPS_BUILDDIR}/KikoPlayApp/app" usr/share/kikoplay/extension
+	vlicense "${XBPS_BUILDDIR}/KikoPlay/LICENSE"
+	vmkdir usr/share/kikoplay/extension/script
+	vmkdir usr/share/kikoplay/extension/app
+	vcopy "${XBPS_BUILDDIR}/KikoPlayScript/*" usr/share/kikoplay/extension/script
+	vcopy "${XBPS_BUILDDIR}/KikoPlayApp/app" usr/share/kikoplay/extension
 }

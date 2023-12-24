@@ -12,6 +12,6 @@ checksum=50fa81df51dfa4e2f67e582b9bc9e3f518b6e097c377e9c20c16238c13e7d5fe
 skip_extraction="v${version}.tar.gz"
 
 do_install() {
-    npm install -g --prefix "${DESTDIR}/usr" "${XBPS_SRCDISTDIR}/${pkgname}-${version}/v${version}.tar.gz"
-    vlicense "${DESTDIR}/usr/lib/node_modules/@electron/asar/LICENSE.md"
+	npm install -g --prefix "${DESTDIR}/usr" "${XBPS_SRCDISTDIR}/${pkgname}-${version}/v${version}.tar.gz"
+	vlicense "${DESTDIR}/usr/lib/node_modules/@electron/asar/LICENSE.md"
 }

@@ -16,22 +16,22 @@ repository=nonfree
 restricted=yes
 
 case "${XBPS_TARGET_MACHINE}" in
-    x86_64) _deb_arch=amd64 ;;
-    aarch64) _deb_arch=arm64 ;;
+	x86_64) _deb_arch=amd64 ;;
+	aarch64) _deb_arch=arm64 ;;
 esac
 
 do_fetch() {
-    wget https://dldir1.qq.com/qqfile/qq/QQNT/${_commit}/${pkgname}_${_version}-${_release}_${_deb_arch}.deb
+	wget https://dldir1.qq.com/qqfile/qq/QQNT/${_commit}/${pkgname}_${_version}-${_release}_${_deb_arch}.deb
 }
 
 do_extract() {
-    ar p "${XBPS_BUILDDIR}/${pkgname}_${_version}-${_release}_${_deb_arch}.deb" data.tar.xz | bsdtar --extract --xz -f - -C .
+	ar p "${XBPS_BUILDDIR}/${pkgname}_${_version}-${_release}_${_deb_arch}.deb" data.tar.xz | bsdtar --extract --xz -f - -C .
 }
 
 do_install() {
-    vmkdir usr/bin
-    vmkdir opt
-    ln -s /opt/QQ/qq "${DESTDIR}/usr/bin/qq"
-    vcopy opt/QQ opt
-    vcopy usr/share usr
+	vmkdir usr/bin
+	vmkdir opt
+	ln -s /opt/QQ/qq "${DESTDIR}/usr/bin/qq"
+	vcopy opt/QQ opt
+	vcopy usr/share usr
 }

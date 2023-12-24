@@ -16,17 +16,17 @@ distfiles="https://github.com/v2rayA/v2rayA/archive/v${version}.tar.gz"
 checksum=22285b2fdf321d68993b38ad738f4af210920757d7944691a78e151abd99cb3a
 
 pre_build() {
-    cd ${wrksrc}/gui
-    yarn --check-files
-    OUTPUT_DIR="${wrksrc}/service/server/router/web" yarn build
-    export GO111MODULE=on
+	cd ${wrksrc}/gui
+	yarn --check-files
+	OUTPUT_DIR="${wrksrc}/service/server/router/web" yarn build
+	export GO111MODULE=on
 }
 
 post_install() {
-    cd ${wrksrc}
-    vinstall install/universal/v2raya.desktop 0644 usr/share/applications
-    vsv v2raya
-    vinstall gui/public/img/icons/android-chrome-512x512.png \
-    0644 usr/share/icons/hicolor/512x512/apps/ v2raya.png
-    vlicense LICENSE
+	cd ${wrksrc}
+	vinstall install/universal/v2raya.desktop 0644 usr/share/applications
+	vsv v2raya
+	vinstall gui/public/img/icons/android-chrome-512x512.png \
+	0644 usr/share/icons/hicolor/512x512/apps/ v2raya.png
+	vlicense LICENSE
 }

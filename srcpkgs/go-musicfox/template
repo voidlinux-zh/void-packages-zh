@@ -15,13 +15,13 @@ distfiles="https://github.com/anhoder/go-musicfox/archive/refs/tags/v${version}.
 checksum="34645315fd75095aa3fc9548138efbb7c8cba8c0c33ca1d4f4fc6c6a26806fee"
 
 do_build() {
-    export GOFLAGS="-buildmode=pie -trimpath -ldflags=-linkmode=external"
-    export CGO_LDFLAGS="${LDFLAGS}"
-    export CGO_CFLAGS="${CFLAGS}"
-    go build -o ../musicfox -ldflags "${go_ldflags}" cmd/musicfox.go
+	export GOFLAGS="-buildmode=pie -trimpath -ldflags=-linkmode=external"
+	export CGO_LDFLAGS="${LDFLAGS}"
+	export CGO_CFLAGS="${CFLAGS}"
+	go build -o ../musicfox -ldflags "${go_ldflags}" cmd/musicfox.go
 }
 
 do_install() {
-    vbin ../musicfox
-    vlicense LICENSE
+	vbin ../musicfox
+	vlicense LICENSE
 }

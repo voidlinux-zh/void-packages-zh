@@ -18,26 +18,26 @@ restricted=yes
 nostrip=yes
 
 do_install() {
-    vcopy etc /
-    vcopy opt /
-    vcopy usr /
+	vcopy etc /
+	vcopy opt /
+	vcopy usr /
 
-    # Install the icons
-    for size in 16 24 32 48 64 128 256; do
-        # Create the google chrome xdg directory
-        mkdir -p ${DESTDIR}/usr/share/icons/hicolor/${size}x${size}/apps
+	# Install the icons
+	for size in 16 24 32 48 64 128 256; do
+		# Create the google chrome xdg directory
+		mkdir -p ${DESTDIR}/usr/share/icons/hicolor/${size}x${size}/apps
 
-        # Copy the google chrome icon
-        mv ${DESTDIR}/opt/google/chrome/product_logo_${size}.png \
-            ${DESTDIR}/usr/share/icons/hicolor/${size}x${size}/apps/google-chrome.png
-    done
+		# Copy the google chrome icon
+		mv ${DESTDIR}/opt/google/chrome/product_logo_${size}.png \
+			${DESTDIR}/usr/share/icons/hicolor/${size}x${size}/apps/google-chrome.png
+	done
 
-    # Remove unused icons
-    rm ${DESTDIR}/opt/google/chrome/*.xpm
+	# Remove unused icons
+	rm ${DESTDIR}/opt/google/chrome/*.xpm
 
-    # Remove the Debian/Ubuntu crontab
-    rm -rf ${DESTDIR}/etc
-    rm -rf ${DESTDIR}/opt/google/chrome/cron
+	# Remove the Debian/Ubuntu crontab
+	rm -rf ${DESTDIR}/etc
+	rm -rf ${DESTDIR}/opt/google/chrome/cron
 
-    vlicense "${FILESDIR}"/google-chrome-eula.md
+	vlicense "${FILESDIR}"/google-chrome-eula.md
 }

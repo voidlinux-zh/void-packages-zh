@@ -15,5 +15,5 @@ distfiles="https://github.com/tauri-apps/tauri/archive/refs/tags/tauri-cli-v${ve
 checksum=292d7ffb7ba70d34281688888532375fe90e0349eafe68ff9b74d942e6bbe30e
 
 post_install() {
-    vlicense LICENSE_MIT
+	vlicense LICENSE_MIT
 }
