@@ -1,6 +1,6 @@
 # Template file for 'clash-nyanpasu'
 pkgname=clash-nyanpasu
-version=1.4.1
+version=1.4.2
 revision=1
 # used for the cargo environment config
 build_style=cargo
@@ -13,11 +13,11 @@ license="GPL-3.0-or-later"
 homepage="https://github.com/keiko233/clash-nyanpasu"
 changelog="https://raw.githubusercontent.com/keiko233/clash-nyanpasu/main/UPDATELOG.md"
 distfiles="https://github.com/keiko233/clash-nyanpasu/archive/refs/tags/v${version}.tar.gz"
-checksum=217745319411d50e14796c745035c942b256424c3fe2370e608e97f20e7dd7b5
+checksum=a087b0e44b7c7dfed1318d8db9c3205f56055269afb5e4e31a579970a7c17c88
 
 pre_build() {
 	# disable tauri updater
-	sed -i '58s/"active": true,/"active": false,/' backend/tauri/tauri.conf.json
+	sed -i '59s/"active": true,/"active": false,/' backend/tauri/tauri.conf.json
 	# pnpm check is broken
 	mkdir -p backend/tauri/sidecar
 	ln -sf /usr/bin/mihomo backend/tauri/sidecar/clash-${RUST_TARGET}
