@@ -43,7 +43,8 @@ do_install() {
 	vbin xtify
 	vinstall xtify.desktop 644 usr/share/applications
 	vmkdir /usr/lib/${pkgname}
-	vcopy "packages/desktop/release/linux-unpacked/resources/"{app.asar,app.asar.unpacked,bin} /usr/lib/${pkgname}
+	vinstall "packages/desktop/release/linux-unpacked/resources/app.asar" 0644 usr/lib/${pkgname}
+	vinstall "packages/desktop/release/linux-unpacked/resources/bin/better_sqlite3.node" 0755 usr/lib/${pkgname}/bin
 	for _icons in 16x16 24x24 32x32 64x64 256x256 512x512;do
 		vinstall "packages/desktop/build/icons/${_icons}.png" 644 \
 			"usr/share/icons/hicolor/${_icons}/apps" ${pkgname}.png
