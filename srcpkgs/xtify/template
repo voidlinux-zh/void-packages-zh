@@ -15,6 +15,7 @@ checksum=6aca34c10cf3564b35095eb156ae5886b5323aa493ff6105f72b94947985f19e
 pre_build() {
 	cp .env.example .env
 	cp packages/server/.env.example packages/server/.env
+	sed -i '115s|linux: path\.resolve(app\.getPath('\''exe'\''), `../resources/bin/better_sqlite3.node`),|linux: path.resolve(app.getPath('\''exe'\''), `/usr/lib/xtify/bin/better_sqlite3.node`),|' packages/desktop/main/db.ts
 }
 
 do_build() {
