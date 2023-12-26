@@ -2,9 +2,7 @@
 pkgname=xtify
 version=2.7.2
 revision=1
-_electron_ver=24
-makedepends="pnpm nodejs sqlite tar"
-depends="electron${_electron_ver}"
+makedepends="pnpm nodejs sqlite tar make python3 python3-setuptools"
 short_desc="a music player forked from YesPlayMusic"
 maintainer="xiarenfan <xiarenfan1998@onionmail.com>"
 license="MIT"
@@ -15,10 +13,6 @@ checksum=6aca34c10cf3564b35095eb156ae5886b5323aa493ff6105f72b94947985f19e
 pre_build() {
 	cp .env.example .env
 	cp packages/server/.env.example packages/server/.env
-	sed -e '106,120d' \
-	-e '92,94d' \
-	-e '91i\    this.sqlite = new SQLite3(this.dbFilePath)' \
-	-i packages/desktop/main/db.ts
 }
 
 do_build() {
@@ -27,19 +21,13 @@ do_build() {
 }
 
 do_install() {
-	vmkdir /usr/lib/${pkgname}
-	vcopy "packages/desktop/release/linux-unpacked/resources/"{app.asar,app.asar.unpacked,bin} /usr/lib/${pkgname}
-
-	cat > xtify <<-EOF
-	#!/bin/sh
-	exec electron${_electron_ver} /usr/lib/${pkgname}/app.asar "\$@"
-	EOF
-
-	vbin xtify
+	vmkdir /opt/${pkgname}
+	vcopy packages/desktop/release/linux-unpacked/* /opt/${pkgname}
 	vinstall "${FILESDIR}/xtify.desktop" 644 usr/share/applications
 	for _icons in 16x16 24x24 32x32 64x64 256x256 512x512;do
         vinstall "packages/desktop/build/icons/${_icons}.png" 644 \
             "usr/share/icons/hicolor/${_icons}/apps/${pkgname}.png"
     done
+	ln -sf /opt/${pkgname}/desktop /usr/bin/xtify
 	vlicense LICENSE
 }
