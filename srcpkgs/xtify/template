@@ -25,9 +25,9 @@ do_install() {
 	vcopy packages/desktop/release/linux-unpacked/* /opt/${pkgname}
 	vinstall "${FILESDIR}/xtify.desktop" 644 usr/share/applications
 	for _icons in 16x16 24x24 32x32 64x64 256x256 512x512;do
-        vinstall "packages/desktop/build/icons/${_icons}.png" 644 \
-            "usr/share/icons/hicolor/${_icons}/apps/${pkgname}.png"
-    done
-	ln -sf /opt/${pkgname}/desktop /usr/bin/xtify
+		vinstall "packages/desktop/build/icons/${_icons}.png" 644 \
+			"usr/share/icons/hicolor/${_icons}/apps ${pkgname}.png"
+	done
+	ln -svf /opt/${pkgname}/desktop ${DESTDIR}/usr/bin/xtify
 	vlicense LICENSE
 }
