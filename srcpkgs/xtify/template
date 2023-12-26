@@ -28,6 +28,7 @@ do_install() {
 		vinstall "packages/desktop/build/icons/${_icons}.png" 644 \
 			"usr/share/icons/hicolor/${_icons}/apps ${pkgname}.png"
 	done
+	vmkdir /usr/bin
 	ln -svf /opt/${pkgname}/desktop ${DESTDIR}/usr/bin/xtify
 	vlicense LICENSE
 }
