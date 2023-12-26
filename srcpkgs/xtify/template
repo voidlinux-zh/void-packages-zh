@@ -9,7 +9,7 @@ short_desc="a music player forked from YesPlayMusic"
 maintainer="xiarenfan <xiarenfan1998@onionmail.com>"
 license="MIT"
 homepage="https://github.com/Sherlockouo/music"
-distfiles="https://github.com/Sherlockouo/music/archive/v${version}.tar.gz"
+distfiles="https://github.com/Sherlockouo/music/archive/${version}.tar.gz"
 checksum=6aca34c10cf3564b35095eb156ae5886b5323aa493ff6105f72b94947985f19e
 
 pre_build() {
