@@ -23,6 +23,7 @@ pre_build() {
 	ln -sf /usr/bin/mihomo backend/tauri/sidecar/clash-${RUST_TARGET}
 	ln -sf /usr/bin/clash-rs backend/tauri/sidecar/clash-rs-${RUST_TARGET}
 	ln -sf /usr/bin/mihomo backend/tauri/sidecar/mihomo-${RUST_TARGET}
+	ln -sf /usr/bin/mihomo backend/tauri/sidecar/mihomo-alpha-${RUST_TARGET}
 	mkdir -p backend/tauri/resources
 	ln -sf /etc/clash/Country.mmdb backend/tauri/resources/Country.mmdb
 }
