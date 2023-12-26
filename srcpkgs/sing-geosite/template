@@ -15,6 +15,6 @@ do_fetch() {
 }
 
 do_install() {
-	vinstall "${XBPS_BUILDDIR}/geosite.db" 0644 usr/share/${pkgname}/geosite.db
+	vinstall "${XBPS_BUILDDIR}/geosite.db" 0644 usr/share/${pkgname}
 	vlicense "${XBPS_BUILDDIR}/LICENSE"
 }

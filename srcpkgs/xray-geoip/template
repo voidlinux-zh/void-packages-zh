@@ -14,6 +14,6 @@ do_fetch() {
 }
 
 do_install() {
-	vinstall "${XBPS_BUILDDIR}/geoip.dat" 0644 usr/share/xray/geoip.dat
+	vinstall "${XBPS_BUILDDIR}/geoip.dat" 0644 usr/share/xray geoip.dat
 	vlicense "${XBPS_BUILDDIR}/LICENSE"
 }

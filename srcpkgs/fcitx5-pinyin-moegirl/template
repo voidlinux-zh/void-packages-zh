@@ -14,5 +14,5 @@ do_fetch() {
 }
 
 do_install() {
-	vinstall "${XBPS_BUILDDIR}/moegirl.dict" 0644 usr/share/fcitx5/pinyin/dictionaries/moegirl.dict
+	vinstall "${XBPS_BUILDDIR}/moegirl.dict" 0644 usr/share/fcitx5/pinyin/dictionaries
 }

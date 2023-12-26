@@ -41,8 +41,8 @@ do_install() {
 	vlicense LICENSE
 	vbin ${pkgname}
 	vinstall "release/config/config.json" 644 etc/${pkgname}/
-	vinstall "completions/bash" 644 usr/share/bash-completion/completions/${pkgname}.bash
-	vinstall "completions/fish" 644 usr/share/fish/vendor_completions.d/${pkgname}.fish
-	vinstall "completions/zsh" 644 usr/share/zsh/site-functions/_${pkgname}
+	vinstall "completions/bash" 644 usr/share/bash-completion/completions ${pkgname}.bash
+	vinstall "completions/fish" 644 usr/share/fish/vendor_completions.d ${pkgname}.fish
+	vinstall "completions/zsh" 644 usr/share/zsh/site-functions _${pkgname}
 	vsv sing-box
 }

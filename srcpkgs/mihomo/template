@@ -31,7 +31,5 @@ do_install() {
 	vsv mihomo
 	vinstall "${FILESDIR}/config.yaml" 644 etc/mihomo
 	ln -svf /etc/clash/Country.mmdb ${DESTDIR}/etc/mihomo/
-	# compatible for some clash gui apps
-	ln -svf mihomo ${DESTDIR}/usr/bin/clash-meta
 	vlicense LICENSE
 }
