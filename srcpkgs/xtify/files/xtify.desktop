@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Xtify
+Comment=a music player forked from YesPlayMusic
+Icon=xtify
+Exec=xtify
+Categories=AudioVideo;Audio;
