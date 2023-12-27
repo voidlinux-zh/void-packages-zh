@@ -1,6 +1,6 @@
 # Template file for 'sing-geosite'
 pkgname=sing-geosite
-version=20231219144426
+version=20231223093928
 revision=1
 short_desc="sing-geosite database"
 maintainer="xiarenfan <xiarenfan1998@onionmail.com>"
@@ -15,6 +15,6 @@ do_fetch() {
 }
 
 do_install() {
-	vinstall "${XBPS_BUILDDIR}/geosite.db" 0644 usr/share/${pkgname}/geosite.db
+	vinstall "${XBPS_BUILDDIR}/geosite.db" 0644 usr/share/${pkgname}
 	vlicense "${XBPS_BUILDDIR}/LICENSE"
 }

@@ -16,5 +16,5 @@ do_fetch() {
 }
 
 do_install() {
-	vinstall "${XBPS_BUILDDIR}/zhwiki-${_webslangver}.dict" 0644 usr/share/fcitx5/pinyin/dictionaries/zhwiki.dict
+	vinstall "${XBPS_BUILDDIR}/zhwiki-${_webslangver}.dict" 0644 usr/share/fcitx5/pinyin/dictionaries zhwiki.dict
 }

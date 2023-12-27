@@ -22,8 +22,8 @@ do_build() {
 
 do_install() {
 	vbin dae
-	vinstall "install/empty.dae" 0640 etc/dae/config.dae
-	vinstall "example.dae" 0644 etc/dae/config.dae.example
+	vinstall "install/empty.dae" 0640 etc/dae config.dae
+	vinstall "example.dae" 0644 etc/dae config.dae.example
 	vmkdir usr/share/dae
 	ln -vs ${DESTDIR}/usr/share/xray/geoip.dat ${DESTDIR}/usr/share/dae/geoip.dat
 	ln -vs ${DESTDIR}/usr/share/xray/geosite.dat ${DESTDIR}/usr/share/dae/geosite.dat

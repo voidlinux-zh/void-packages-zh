@@ -19,14 +19,14 @@ do_fetch() {
 do_build() {
 	cmake -B"build-lua53" -S"${XBPS_BUILDDIR}/KikoPlay/Extension/Lua"
 	cd build-lua53
-	make -j$(proc)
+	make
 	ln -sf "${XBPS_BUILDDIR}/${pkgname}-${version}/build-lua53/libmyLua53.a" "${XBPS_BUILDDIR}/KikoPlay/lib/x64/linux/liblua53.a"
 	ln -sf "${XBPS_BUILDDIR}/${pkgname}-${version}/build-lua53/libmyLua53.a" "${XBPS_BUILDDIR}/KikoPlay/Extension/Lua/liblua53.a"
 
 	mkdir ${XBPS_BUILDDIR}/${pkgname}-${version}/build
 	cd ${XBPS_BUILDDIR}/${pkgname}-${version}/build
 	qmake ${XBPS_BUILDDIR}/KikoPlay
-	make -j$(proc)
+	make
 }
 
 do_install() {

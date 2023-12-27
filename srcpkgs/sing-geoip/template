@@ -16,7 +16,7 @@ do_fetch() {
 }
 
 do_install() {
-	vinstall "${XBPS_BUILDDIR}/geoip-cn.db" 0644 usr/share/${pkgname}/geoip-cn.db
-	vinstall "${XBPS_BUILDDIR}/geoip.db" 0644 usr/share/${pkgname}/geoip.db
+	vinstall "${XBPS_BUILDDIR}/geoip-cn.db" 0644 usr/share/${pkgname}
+	vinstall "${XBPS_BUILDDIR}/geoip.db" 0644 usr/share/${pkgname}
 	vlicense "${XBPS_BUILDDIR}/LICENSE"
 }
