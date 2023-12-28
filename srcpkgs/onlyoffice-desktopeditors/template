@@ -1,0 +1,38 @@
+# Template file for 'onlyoffice-desktopeditors'
+pkgname=onlyoffice-desktopeditors
+version=7.5.1
+revision=1
+archs="x86_64"
+hostmakedepends="wget rpm cpio"
+depends="libstdc++ curl desktop-file-utils gtk+3 libpulseaudio gstreamer1 nss alsa-lib gst-plugins-base1 gst-plugins-ugly1 nspr hicolor-icon-theme"
+short_desc="Office suite that combines text, spreadsheet and presentation editors"
+maintainer="madoka773 <valigarmanda55@gmail.com>"
+license="AGPL-3.0-only"
+homepage="https://www.onlyoffice.com"
+changelog="https://raw.githubusercontent.com/ONLYOFFICE/DesktopEditors/v${version}/CHANGELOG.md"
+nostrip=yes
+distfiles="https://github.com/ONLYOFFICE/DesktopEditors/releases/download/v${version}/onlyoffice-desktopeditors.x86_64.rpm"
+checksum="e1207315fc5393e505cedb1f3d90e8ac5239feefddf73939c60d09d9adfe339f"
+skip_extraction="onlyoffice-desktopeditors.x86_64.rpm"
+
+do_extract() {
+	rpm2cpio ${XBPS_SRCDISTDIR}/${pkgname}-${version}/onlyoffice-desktopeditors.x86_64.rpm | cpio -div
+}
+
+do_install() {
+	cp -R ${wrksrc}/* ${DESTDIR}
+
+	# icons
+	local _file
+	local _res
+	while read -r -d '' _file
+	do
+		_res="$(sed 's/\.png$//;s/^.*-//' <<< "$_file")"
+		install -d -m755 "${DESTDIR}/usr/share/icons/hicolor/${_res}x${_res}/apps"
+		ln -s "../../../../../../opt/onlyoffice/desktopeditors/asc-de-${_res}.png" \
+			"${DESTDIR}/usr/share/icons/hicolor/${_res}x${_res}/apps/onlyoffice-desktopeditors.png"
+	done < <(find "${DESTDIR}/opt/onlyoffice/desktopeditors" -maxdepth 1 -type f -name 'asc-de-*.png' -print0)
+
+	vlicense ${DESTDIR}/opt/onlyoffice/desktopeditors/3DPARTYLICENSE
+	vlicense ${DESTDIR}/opt/onlyoffice/desktopeditors/LICENSE.htm
+}

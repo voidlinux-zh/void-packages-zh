@@ -25,7 +25,7 @@ maintainer="Twilighttony <starrbeartony14@zoho.com>"
 license="GPL-3.0-or-later"
 homepage="https://calamares.io"
 distfiles="https://github.com/${pkgname}/${pkgname}/archive/refs/tags/v${version}.tar.gz"
-checksum=cefb9eae2b8efe2b8411bb2708dc31bd2ad7d31a9e04b414d70868e9fa3db7a6
+checksum="cefb9eae2b8efe2b8411bb2708dc31bd2ad7d31a9e04b414d70868e9fa3db7a6"
 
 pre_configure() {
 	vsed -i -e "s/desired_size = 512 \* 1024 \* 1024  \# 512MiB/desired_size = 512 \* 1024 \* 1024 \* 4  \# 2048MiB/" src/modules/fstab/main.py

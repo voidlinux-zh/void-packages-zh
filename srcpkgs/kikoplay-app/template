@@ -1,0 +1,17 @@
+# Template file for 'kikoplay-app'
+pkgname=kikoplay-app
+version=1.0.1
+revision=1
+short_desc="App files of KikoPLay"
+maintainer="madoka773 <valigarmanda55@gmail.com>"
+license="MIT"
+homepage="https://github.com/KikoPlayProject/KikoPlayApp"
+_commit="233dd28e8ee284cc6f0672a1310916bea5c05ebc"
+distfiles="https://github.com/KikoPlayProject/KikoPlayApp/archive/${_commit}.tar.gz"
+checksum="872db50de4aecd1d6ddfb593ad06c3e36bdb8f2deb16ca9911fd6e51c8e72838"
+
+do_install() {
+	vlicense LICENSE
+	vmkdir usr/share/kikoplay/extension
+	vcopy "app" usr/share/kikoplay/extension
+}

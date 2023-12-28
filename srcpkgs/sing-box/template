@@ -1,21 +1,21 @@
 # Template file for 'sing-box'
 pkgname=sing-box
-version=1.7.5
+version=1.7.7
 revision=1
 build_style=go
 go_import_path="github.com/SagerNet/sing-box"
 go_ldflags="github.com/sagernet/sing-box/constant.Version=${version}"
-hostmakedepends="go"
 depends="sing-geosite sing-geoip"
 short_desc="The universal proxy platform."
 maintainer="haninfang <xiarenfan@tutanota.com>"
 license="GPL-3.0-or-later"
 homepage="https://sing-box.sagernet.org/"
 distfiles="https://github.com/SagerNet/sing-box/archive/v${version}.tar.gz"
-checksum="467373705604cb9cbf9c8363b0cec93aeb66b8de02742d96304f91181f5fbb5e"
+checksum="ce182cb2181e898b56ca9b6ce0d5adeaece8e761ac62ce8cde69b3c7219b8430"
 _tags="with_gvisor,with_quic,with_wireguard,with_utls,with_reality_server,with_clash_api,with_ech"
 
 do_build() {
+	export GOPROXY=https://goproxy.io,direct
 	export CGO_CPPFLAGS="$CPPFLAGS"
 	export CGO_CFLAGS="$CFLAGS"
 	export CGO_CXXFLAGS="$CXXFLAGS"

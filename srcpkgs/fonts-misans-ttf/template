@@ -1,0 +1,77 @@
+# Template file for 'fonts-misans-ttf'
+pkgname=fonts-misans-ttf
+version=4.003
+revision=1
+hostmakedepends="unzip"
+depends="font-util"
+short_desc="MiSans Global is a global language font customization project led by Xiaomi and co-created with Mona font and Han Yi font."
+maintainer="madoka773 <valigarmanda55@gmail.com>"
+license="custom"
+homepage="https://hyperos.mi.com/font"
+distfiles="https://hyperos.mi.com/font-download/MiSans_Global_ALL.zip"
+checksum="2322a01e3138661a3d76980cfd8167f704bbea60445df94a00c79d3d6ae85b57"
+font_dirs="/usr/share/fonts/misans"
+_zipname="MiSansGlobal_ALL"
+
+do_build() {
+	mv -f "MiSans Global _ALL" ${_zipname}
+	cd ${_zipname}
+	unzip -o '*.zip'
+	mv "MiSana Arabic" "MiSansArabic"
+	mv "MiSans Devanagari" "MiSansDevanagari"
+	mv "MiSans Gujarati" "MiSansGujarati"
+	mv "MiSans Gurmukhi" "MiSansGurmukhi"
+	mv "MiSans Khmer" "MiSansKhmer"
+	mv " MiSans Lao" "MiSansLao"
+	mv "MiSans Latin" "MiSansLatin"
+	mv "MiSans Myanmar" "MiSansMyanmar"
+	mv "MiSans L3" "MiSansL3"
+	mv "MiSans TC" "MiSansTC"
+	mv "MiSans Tibetan" "MiSansTibetan"
+	mv "MiSans Thai " "MiSansThai"
+}
+
+do_install() {
+	vmkdir usr/share/fonts/misans/arabic
+	vmkdir usr/share/fonts/misans/devanagari
+	vmkdir usr/share/fonts/misans/gujarati
+	vmkdir usr/share/fonts/misans/gurmukhi
+	vmkdir usr/share/fonts/misans/khmer
+	vmkdir usr/share/fonts/misans/lao
+	vmkdir usr/share/fonts/misans/latin
+	vmkdir usr/share/fonts/misans/myanmar
+	vmkdir usr/share/fonts/misans/sc
+	vmkdir usr/share/fonts/misans/sc-l3
+	vmkdir usr/share/fonts/misans/tc
+	vmkdir usr/share/fonts/misans/thai
+	vmkdir usr/share/fonts/misans/tibetan
+
+	vcopy "${_zipname}/MiSansArabic/ttf/*.ttf" usr/share/fonts/misans/arabic
+	vcopy "${_zipname}/MiSansDevanagari/TrueType/*.ttf" usr/share/fonts/misans/devanagari
+	vcopy "${_zipname}/MiSansGujarati/TrueType/*.ttf" usr/share/fonts/misans/gujarati
+	vcopy "${_zipname}/MiSansGurmukhi/TrueType/*.ttf" usr/share/fonts/misans/gurmukhi
+	vcopy "${_zipname}/MiSansKhmer/TTF/*.ttf" usr/share/fonts/misans/khmer
+	vcopy "${_zipname}/MiSansLao/TrueType/*.ttf" usr/share/fonts/misans/lao
+	vcopy "${_zipname}/MiSansLatin/static/ttf/*.ttf" usr/share/fonts/misans/latin
+	vcopy "${_zipname}/MiSansMyanmar/ttf/*.ttf" usr/share/fonts/misans/myanmar
+	vcopy "${_zipname}/MiSans/ttf/*.ttf" usr/share/fonts/misans/sc
+	vcopy "${_zipname}/MiSansL3/*.ttf" usr/share/fonts/misans/sc-l3
+	vcopy "${_zipname}/MiSansTC/ttf/*.ttf" usr/share/fonts/misans/tc
+	vcopy "${_zipname}/MiSansThai/TrueType/*.ttf" usr/share/fonts/misans/thai
+	vcopy "${_zipname}/MiSansTibetan/ttf/*.ttf" usr/share/fonts/misans/tibetan
+	
+	cat > 75-misans.conf <<-EOF
+	<?xml version="1.0" encoding="UTF-8"?>
+	<!DOCTYPE fontconfig SYSTEM "../fonts.dtd">
+	<fontconfig>
+	    <alias>
+	        <family>MiSans</family>
+	        <prefer><family>MiSans</family></prefer>
+	    </alias>
+	</fontconfig>
+	EOF
+    
+    vinstall 75-misans.conf 0644 usr/share/fontconfig/conf.default
+    vmkdir usr/share/fontconfig/conf.avail
+    ln -nsf /usr/share/fontconfig/conf.default/75-misans.conf ${DESTDIR}/usr/share/fontconfig/conf.avail
+}

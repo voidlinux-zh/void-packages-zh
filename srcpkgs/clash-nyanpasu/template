@@ -4,7 +4,7 @@ version=1.4.2
 revision=1
 # used for the cargo environment config
 build_style=cargo
-hostmakedepends="nodejs pkg-config pnpm sed quickjs wget mihomo clash-rs clash-geoip moreutils clang"
+hostmakedepends="nodejs pkg-config pnpm sed quickjs wget mihomo clash-rs clash-geoip moreutils clang llvm"
 makedepends="dbus-devel gtk+3-devel libappindicator-devel libsoup-devel openssl-devel webkit2gtk-devel quickjs-devel"
 depends="libappindicator clash-rs mihomo openssl webkit2gtk"
 short_desc="A Clash GUI based on tauri.Clash Nyanpasu! (∠・ω< )⌒☆​"
@@ -13,7 +13,7 @@ license="GPL-3.0-or-later"
 homepage="https://github.com/keiko233/clash-nyanpasu"
 changelog="https://raw.githubusercontent.com/keiko233/clash-nyanpasu/main/UPDATELOG.md"
 distfiles="https://github.com/keiko233/clash-nyanpasu/archive/refs/tags/v${version}.tar.gz"
-checksum=a087b0e44b7c7dfed1318d8db9c3205f56055269afb5e4e31a579970a7c17c88
+checksum="a087b0e44b7c7dfed1318d8db9c3205f56055269afb5e4e31a579970a7c17c88"
 
 pre_build() {
 	# disable tauri updater
@@ -29,7 +29,8 @@ pre_build() {
 }
 
 do_build() {
-	export RUSTFLAGS="-L /usr/lib/quickjs"
+	export RUSTFLAGS="${RUSTFLAG} -L /usr/lib/quickjs"
+	pnpm config set registry https://registry.npmmirror.com
 	pnpm i
 	pnpm build --target ${RUST_TARGET} --bundles deb
 }
@@ -40,7 +41,8 @@ do_install() {
 		x86_64*) _deb_arch=amd64 ;;
 		i686*) _deb_arch=i386 ;;
 		aarch64*) _deb_arch=arm64 ;;
-		armv*) _deb_arch=armhf ;;
+		armv7*) _deb_arch=armhf ;;
+		armv6*) _deb_arch=armel ;;
 	esac
 	vbin backend/target/${RUST_TARGET}/release/bundle/deb/${pkgname}_${version}_${_deb_arch}/data/usr/bin/clash-nyanpasu
 	vcopy backend/target/${RUST_TARGET}/release/bundle/deb/${pkgname}_${version}_${_deb_arch}/data/usr/share usr

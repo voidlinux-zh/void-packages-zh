@@ -3,17 +3,18 @@ pkgname=electron-netease-cloud-music
 version=0.9.38
 revision=1
 _electron_ver=24
-makedepends="yarn"
+hostmakedepends="nodejs yarn"
 depends="electron${_electron_ver}"
 short_desc="UNOFFICIAL client for music.163.com . Powered by Electron, Vue, and Muse-UI."
 maintainer="xiarenfan <xiarenfan1998@onionmail.com>"
 license="GPL-3.0-or-later"
 homepage="https://github.com/Rocket1184/electron-netease-cloud-music"
 distfiles="https://github.com/Rocket1184/electron-netease-cloud-music/archive/v${version}.tar.gz"
-checksum=01a20c85918fcb780cc361df238ddc2fc3255bf10e12f24b1a88fb85b3598e41
+checksum="01a20c85918fcb780cc361df238ddc2fc3255bf10e12f24b1a88fb85b3598e41"
 
 
 do_build() {
+	yarn config set registry https://registry.npmmirror.com
 	yarn install --ignore-scripts 
 	yarn dist 
 	yarn build linux
@@ -22,12 +23,28 @@ do_build() {
 do_install() {
 	vmkdir /usr/lib
 	vcopy dist /usr/lib/${pkgname}
+
 	cat > electron-netease-cloud-music <<-EOF
 	#!/bin/sh
 	exec electron${_electron_ver} /usr/lib/${pkgname}/app.asar "\$@"
 	EOF
+
+	cat > electron-netease-cloud-music.desktop <<-EOF
+	[Desktop Entry]
+	Type=Application
+	Name=ElectronNCM
+	Name[zh_CN]=ElectronNCM
+	Name[zh_TW]=ElectronNCM
+	Comment=UNOFFICIAL client for music.163.com
+	Comment[zh_CN]=网易云音乐非官方客户端
+	Comment[zh_TW]=網易雲音樂非官方用戶端
+	Icon=electron-netease-cloud-music
+	Exec=electron-netease-cloud-music
+	Categories=AudioVideo;Audio;
+	EOF
+	
 	vbin electron-netease-cloud-music
-	vinstall "${FILESDIR}/electron-netease-cloud-music.desktop" 644 usr/share/applications
+	vinstall "electron-netease-cloud-music.desktop" 644 usr/share/applications
 	vinstall "assets/icons/icon.svg" 644 usr/share/icons/hicolor/scalable/apps ${pkgname}.svg
 	vlicense LICENSE
 	vinstall "build/Electron NCM-linux-x64/resources/app.asar" 644 usr/lib/${pkgname}

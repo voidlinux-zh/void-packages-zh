@@ -1,21 +1,22 @@
 # Template file for 'mihomo'
 pkgname=mihomo
-version=1.17.0
+version=1.18.0
 revision=1
 build_style=go
 go_import_path="github.com/MetaCubeX/mihomo"
-hostmakedepends="go clash-geoip coreutils make git"
+hostmakedepends="clash-geoip coreutils make git"
 depends="clash-geoip"
 short_desc="Another Mihomo Kernel by MetaCubeX"
 maintainer="xiarenfan <xiarenfan1998@onionmail.com>"
 license="GPL-3.0-or-later"
 homepage="https://github.com/MetaCubeX/mihomo"
+
 case "${XBPS_TARGET_MACHINE}" in
 	x86_64*) _mihomo_arch=amd64 ;;
 	i686*) _mihomo_arch=386 ;;
 	aarch64*) _mihomo_arch=arm64 ;;
-	armv6*) _mihomo_arch=armv6 ;;
 	armv7*) _mihomo_arch=armv7 ;;
+	armv6*) _mihomo_arch=armv6 ;;
 esac
 
 do_fetch() {
@@ -23,6 +24,7 @@ do_fetch() {
 }
 
 do_build() {
+	export GOPROXY=https://goproxy.io,direct
 	make linux-${_mihomo_arch}
 }
 

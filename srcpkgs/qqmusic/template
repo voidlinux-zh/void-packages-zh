@@ -12,13 +12,12 @@ license="custom"
 homepage="https://y.qq.com/"
 repository=nonfree
 restricted=yes
-
-do_fetch() {
-	wget https://test.mini-proxy.mivm.cn/qqmusic-electron/${pkgname}_${version}-${revision}.asar
-}
+distfiles="https://test.mini-proxy.mivm.cn/qqmusic-electron/${pkgname}_${version}-${revision}.asar"
+checksum="cea6eca5c8df91d9e3276769558290f91b25885ba3a4bdad469e3187b09da3bd"
+skip_extraction="${pkgname}_${version}-${revision}.asar"
 
 do_extract() {
-	asar ef ${XBPS_BUILDDIR}/${pkgname}_${version}-${revision}.asar logo.png
+	asar ef ${XBPS_SRCDISTDIR}/${pkgname}-${version}/${pkgname}_${version}-${revision}.asar logo.png
 }
 
 do_install() {

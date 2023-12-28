@@ -5,7 +5,7 @@ revision=1
 build_style=go
 go_ldflags="-s -w -X go-musicfox/pkg/constants.AppVersion=v${version}"
 go_import_path="github.com/anhoder/go-musicfox"
-hostmakedepends="gcc-objc go pkg-config alsa-lib-devel libflac-devel"
+hostmakedepends="gcc-objc pkg-config alsa-lib-devel libflac-devel"
 depends="flac alsa-lib"
 short_desc="Command-line Netease Cloud Music written in Go"
 maintainer="xiarenfan <xiarenfan1998@onionmail.com>"
@@ -15,6 +15,7 @@ distfiles="https://github.com/anhoder/go-musicfox/archive/refs/tags/v${version}.
 checksum="34645315fd75095aa3fc9548138efbb7c8cba8c0c33ca1d4f4fc6c6a26806fee"
 
 do_build() {
+	export GOPROXY=https://goproxy.io,direct
 	export GOFLAGS="-buildmode=pie -trimpath -ldflags=-linkmode=external"
 	export CGO_LDFLAGS="${LDFLAGS}"
 	export CGO_CFLAGS="${CFLAGS}"

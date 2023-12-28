@@ -1,0 +1,17 @@
+# Template file for 'kikoplay-script'
+pkgname=kikoplay-script
+version=1.0.1
+revision=1
+short_desc="Script files of KikoPLay"
+maintainer="madoka773 <valigarmanda55@gmail.com>"
+license="MIT"
+homepage="https://github.com/KikoPlayProject/KikoPlayScript"
+_commit="4c552ec13e86a055e5d1d2ea4bfb7ed2b0e54a8f"
+distfiles="https://github.com/KikoPlayProject/KikoPlayScript/archive/${_commit}.tar.gz"
+checksum="15d83b36893e87884d12a353e472093dd2dc19a1890064b66469def76cad5a78"
+
+do_install() {
+	vlicense LICENSE
+	vmkdir usr/share/kikoplay/extension/script
+	vcopy "*" usr/share/kikoplay/extension/script
+}

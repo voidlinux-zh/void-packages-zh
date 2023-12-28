@@ -2,7 +2,6 @@
 pkgname=fonts-maple-ttf
 version=6.4
 revision=1
-makedepends="wget"
 depends="font-util"
 short_desc="Open source monospace/Nerd Font font with round corner for IDE and command line"
 maintainer="madoka773 <valigarmanda55@gmail.com>"

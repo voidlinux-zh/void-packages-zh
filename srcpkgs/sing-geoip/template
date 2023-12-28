@@ -5,18 +5,14 @@ revision=1
 short_desc="sing-geoip database"
 maintainer="xiarenfan <xiarenfan1998@onionmail.com>"
 license="GPL-3.0-or-later"
-makedepends="wget"
-_repo="SagerNet/${pkgname}"
 homepage="https://github.com/SagerNet/sing-geoip"
-
-do_fetch() {
-	wget ${homepage}/releases/download/${version}/geoip-cn.db
-	wget ${homepage}/releases/download/${version}/geoip.db
-	wget https://raw.githubusercontent.com/${_repo}/${version}/LICENSE
-}
+distfiles="https://github.com/SagerNet/sing-geoip/releases/download/${version}/geoip.db
+	https://github.com/SagerNet/sing-geoip/releases/download/${version}/geoip-cn.db"
+checksum="1d00fe87e50854e10444813413d2b81a90dc40058817f12e6775a0ff23fa676c
+	2ea8b663b1776ee6ad18556e0ea24dec4ddf6eff501d8ad56d60018c044fae57"
+skip_extraction="geoip.db geoip-cn.db"
 
 do_install() {
-	vinstall "${XBPS_BUILDDIR}/geoip-cn.db" 0644 usr/share/${pkgname}
-	vinstall "${XBPS_BUILDDIR}/geoip.db" 0644 usr/share/${pkgname}
-	vlicense "${XBPS_BUILDDIR}/LICENSE"
+	vinstall "${XBPS_SRCDISTDIR}/${pkgname}-${version}/geoip-cn.db" 0644 usr/share/${pkgname}
+	vinstall "${XBPS_SRCDISTDIR}/${pkgname}-${version}/geoip.db" 0644 usr/share/${pkgname}
 }
