@@ -1,6 +1,6 @@
 # Template file for 'clash-rs'
 pkgname=clash-rs
-version=0.1.10
+version=0.1.13
 revision=1
 build_style=cargo
 hostmakedepends="pkg-config git cmake go clang"

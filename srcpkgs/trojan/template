@@ -10,4 +10,4 @@ maintainer="haninfang <xiarenfan@tutanota.com>"
 license="GPL-3.0-or-later"
 homepage="https://github.com/trojan-gfw/trojan"
 distfiles="${homepage}/archive/v${version}.tar.gz"
-checksum=86cdb2685bb03a63b62ce06545c41189952f1ec4a0cd9147450312ed70956cbc
+checksum="86cdb2685bb03a63b62ce06545c41189952f1ec4a0cd9147450312ed70956cbc"

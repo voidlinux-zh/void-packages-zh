@@ -2,7 +2,6 @@
 pkgname=fonts-iming-ttf
 version=8.00
 revision=1
-makedepends="wget"
 depends="font-util"
 short_desc="A serif font inculdes almost all CJK characters"
 maintainer="madoka773 <valigarmanda55@gmail.com>"

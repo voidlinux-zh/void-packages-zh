@@ -5,14 +5,12 @@ revision=1
 short_desc="Fcitx 5 Pinyin Dictionary from zh.moegirl.org.cn"
 maintainer="madoka773 <valigarmanda55@gmail.com>"
 license="Unlicense"
-makedepends="wget"
 homepage="https://github.com/outloudvi/mw2fcitx"
 depends="fcitx5 fcitx5-chinese-addons"
-
-do_fetch() {
-	wget ${homepage}/releases/download/${version}/moegirl.dict
-}
+distfiles="https://github.com/outloudvi/mw2fcitx/releases/download/${version}/moegirl.dict"
+checksum="c7e5e401388d30d6dc4a237cecc91146f2a236ecefa66903aed1a4c1d9c8b183"
+skip_extraction="moegirl.dict"
 
 do_install() {
-	vinstall "${XBPS_BUILDDIR}/moegirl.dict" 0644 usr/share/fcitx5/pinyin/dictionaries
+	vinstall "${XBPS_SRCDISTDIR}/${pkgname}-${version}/moegirl.dict" 0644 usr/share/fcitx5/pinyin/dictionaries
 }
