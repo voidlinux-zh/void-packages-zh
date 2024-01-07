@@ -1,17 +1,18 @@
 # Template file for 'kikoplay'
 pkgname=kikoplay
-version=1.0.0
+version=1.0.1
 revision=1
 short_desc="KikoPlay - NOT ONLY A Full-Featured Danmu Player"
 maintainer="madoka773 <valigarmanda55@gmail.com>"
 license="GPL-3.0-or-later"
 homepage="https://github.com/KikoPlayProject/KikoPlay"
+changelog="https://kikoplay.fun/"
 build_style="qmake"
 configure_args="KikoPlay.pro"
 makedepends="qt5-websockets-devel mpv-devel lua53-devel"
-depends="mpv aria2 ffmpeg kikoplay-app kikoplay-script"
+depends="mpv aria2 yt-dlp ffmpeg lua53 kikoplay-app kikoplay-script"
 distfiles="https://github.com/KikoPlayProject/KikoPlay/archive/refs/tags/${version}.tar.gz"
-checksum="a8e20f9880fc3418e12f836c28684607e6486d1d2e504e7e829daa5c2344a47f"
+checksum="da33b02f2b4264c3040feec8a24986f323174feac3505ec52e0a68e5c9ce7b76"
 
 pre_build() {
 	ln -sf "/usr/lib/liblua5.3.a" "lib/x64/linux/liblua53.a"

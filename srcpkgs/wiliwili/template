@@ -11,10 +11,13 @@ configure_args="-DPLATFORM_DESKTOP:BOOL=ON
 	-DINSTALL:BOOL=ON
 	-DCMAKE_BUILD_TYPE=Release
 	-DGLFW_BUILD_WAYLAND:BOOL=ON
-	-DGLFW_BUILD_X11:BOOL=ON"
-hostmakedepends="pkg-config cmake ninja git python"
-makedepends="mpv-devel libwebp-devel libXcursor-devel"
-depends="mpv libwebp"
+	-DGLFW_BUILD_X11:BOOL=ON
+	-DUSE_SYSTEM_CURL=ON
+	-DUSE_SYSTEM_FMT=ON
+	-DUSE_SYSTEM_TINYXML2=ON"
+hostmakedepends="pkg-config git python libcurl fmt tinyxml2"
+makedepends="mpv-devel libwebp-devel libXcursor-devel libcurl-devel fmt-devel tinyxml2-devel"
+depends="mpv libwebp tinyxml2 fmt"
 
 do_fetch() {
 	git clone https://github.com/xfangfang/wiliwili.git --recursive --branch=v${version} --depth=1 ${pkgname}-${version}

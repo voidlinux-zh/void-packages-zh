@@ -1,0 +1,52 @@
+# Template file for 'clash-verge-rev'
+pkgname=clash-verge-rev
+version=1.4.6
+revision=1
+# used for the cargo environment config
+build_style=cargo
+hostmakedepends="nodejs pkg-config pnpm sed quickjs wget mihomo clash-geoip moreutils clang llvm v2ray-rules-dat-autoupdate"
+makedepends="dbus-devel gtk+3-devel libayatana-appindicator-devel libsoup-devel openssl-devel webkit2gtk-devel quickjs-devel"
+depends="libayatana-appindicator mihomo openssl webkit2gtk"
+short_desc="Continuation of Clash Verge - A Clash Meta GUI based on Tauri (Windows, MacOS, Linux) ​"
+maintainer="madoka773 <valigarmanda55@gmail.com>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/clash-verge-rev/clash-verge-rev"
+changelog="https://raw.githubusercontent.com/clash-verge-rev/clash-verge-rev/main/UPDATELOG.md"
+distfiles="https://github.com/clash-verge-rev/clash-verge-rev/archive/refs/tags/v${version}.tar.gz"
+checksum="6558402e24d28a344533301da0880b0cd1c47b792f466ef5d9650e173a3982ae"
+
+pre_build() {
+	# pnpm check is broken
+	mkdir -p src-tauri/sidecar
+	ln -svf /usr/bin/mihomo src-tauri/sidecar/clash-meta-${RUST_TARGET}
+	ln -svf /usr/bin/mihomo src-tauri/sidecar/clash-meta-alpha-${RUST_TARGET}
+	mkdir -p src-tauri/resources
+	ln -svf /etc/clash/Country.mmdb src-tauri/resources/
+	ln -svf /var/lib/v2ray-rules-dat/geoip.dat src-tauri/resources/
+	ln -svf /var/lib/v2ray-rules-dat/geosite.dat src-tauri/resources/
+}
+
+do_build() {
+	export RUSTFLAGS="${RUSTFLAG} -L /usr/lib/quickjs"
+	pnpm config set registry https://registry.npmmirror.com
+	pnpm i
+	pnpm build --target ${RUST_TARGET} --bundles deb
+}
+
+do_install() {
+	local _deb_arch
+	case "${XBPS_TARGET_MACHINE}" in
+		x86_64*) _deb_arch=amd64 ;;
+		i686*) _deb_arch=i386 ;;
+		aarch64*) _deb_arch=arm64 ;;
+		armv7*) _deb_arch=armhf ;;
+		armv6*) _deb_arch=armel ;;
+	esac
+	vbin src-tauri/target/${RUST_TARGET}/release/bundle/deb/clash-verge_${version}_${_deb_arch}/data/usr/bin/clash-verge
+	vcopy src-tauri/target/${RUST_TARGET}/release/bundle/deb/clash-verge_${version}_${_deb_arch}/data/usr/share usr
+	vmkdir usr/lib/clash-verge/resources
+	ln -svf /etc/clash/Country.mmdb ${DESTDIR}/usr/lib/clash-verge/resources/
+	ln -svf /var/lib/v2ray-rules-dat/geoip.dat ${DESTDIR}/usr/lib/clash-verge/resources/
+	ln -svf /var/lib/v2ray-rules-dat/geosite.dat ${DESTDIR}/usr/lib/clash-verge/resources/
+	vlicense LICENSE
+}

@@ -3,8 +3,8 @@ pkgname=qqmusic
 version=1.1.5
 revision=8
 _electron_ver=24
-archs="x86_64"
-hostmakedepends="wget nodejs asar"
+archs="x86_64 x86_64-musl"
+hostmakedepends="nodejs asar"
 depends="electron${_electron_ver}"
 short_desc="Tencent QQMusic, Run with system Electron."
 maintainer="madoka773 <valigarmanda55@gmail.com>"
@@ -21,12 +21,12 @@ do_extract() {
 }
 
 do_install() {
-	cat > qqmusic << EOF
+	cat > qqmusic <<-EOF
 	#!/bin/sh
 	exec electron${_electron_ver} /usr/lib/${pkgname}/app.asar "\$@"
-EOF
+	EOF
 
-	cat > qqmusic.desktop << EOF
+	cat > qqmusic.desktop <<-EOF
 	[Desktop Entry]
 	Name=QQMusic
 	Name[zh_CN]=QQ音乐
@@ -37,11 +37,11 @@ EOF
 	StartupWMClass=qqmusic
 	Comment=Tencent QQMusic
 	Categories=AudioVideo;
-EOF
+	EOF
 
 	vmkdir usr/share/pixmaps
 	vmkdir usr/lib/${pkgname}
-	vinstall ${XBPS_BUILDDIR}/${pkgname}_${version}-${revision}.asar 644 usr/lib/${pkgname} app.asar
+	vinstall ${XBPS_SRCDISTDIR}/${pkgname}-${version}/${pkgname}_${version}-${revision}.asar 644 usr/lib/${pkgname} app.asar
 	vinstall qqmusic.desktop 644 usr/share/applications
 	vinstall logo.png 644 usr/share/pixmaps ${pkgname}.png
 	vbin qqmusic
