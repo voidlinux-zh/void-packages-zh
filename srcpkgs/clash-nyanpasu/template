@@ -4,9 +4,10 @@ version=1.4.2
 revision=1
 # used for the cargo environment config
 build_style=cargo
-hostmakedepends="nodejs pkg-config pnpm sed quickjs wget mihomo clash-rs clash-geoip moreutils clang llvm"
+hostmakedepends="nodejs pkg-config pnpm sed quickjs wget mihomo clash-rs clash-geoip moreutils clang llvm v2ray-rules-dat-autoupdate"
 makedepends="dbus-devel gtk+3-devel libappindicator-devel libsoup-devel openssl-devel webkit2gtk-devel quickjs-devel"
 depends="libappindicator clash-rs mihomo openssl webkit2gtk"
+archs="~*-musl"
 short_desc="A Clash GUI based on tauri.Clash Nyanpasu! (∠・ω< )⌒☆​"
 maintainer="madoka773 <valigarmanda55@gmail.com>"
 license="GPL-3.0-or-later"
@@ -25,7 +26,9 @@ pre_build() {
 	ln -sf /usr/bin/mihomo backend/tauri/sidecar/mihomo-${RUST_TARGET}
 	ln -sf /usr/bin/mihomo backend/tauri/sidecar/mihomo-alpha-${RUST_TARGET}
 	mkdir -p backend/tauri/resources
-	ln -sf /etc/clash/Country.mmdb backend/tauri/resources/Country.mmdb
+	ln -sf /etc/clash/Country.mmdb backend/tauri/resources/
+	ln -sf /var/lib/v2ray-rules-dat/geoip.dat backend/tauri/resources/
+	ln -sf /var/lib/v2ray-rules-dat/geosite.dat backend/tauri/resources/
 }
 
 do_build() {
@@ -47,6 +50,8 @@ do_install() {
 	vbin backend/target/${RUST_TARGET}/release/bundle/deb/${pkgname}_${version}_${_deb_arch}/data/usr/bin/clash-nyanpasu
 	vcopy backend/target/${RUST_TARGET}/release/bundle/deb/${pkgname}_${version}_${_deb_arch}/data/usr/share usr
 	vmkdir usr/lib/clash-nyanpasu/resources
-	ln -svf /etc/clash/Country.mmdb ${DESTDIR}/usr/lib/clash-nyanpasu/resources/
+	ln -sf /etc/clash/Country.mmdb ${DESTDIR}/usr/lib/clash-nyanpasu/resources/
+	ln -sf /var/lib/v2ray-rules-dat/geoip.dat ${DESTDIR}/usr/lib/clash-nyanpasu/resources/
+	ln -sf /var/lib/v2ray-rules-dat/geosite.dat ${DESTDIR}/usr/lib/clash-nyanpasu/resources/
 	vlicense LICENSE
 }
