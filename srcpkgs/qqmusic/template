@@ -21,12 +21,12 @@ do_extract() {
 }
 
 do_install() {
-	cat > qqmusic << EOF
+	cat > qqmusic <<-EOF
 	#!/bin/sh
 	exec electron${_electron_ver} /usr/lib/${pkgname}/app.asar "\$@"
-EOF
+	EOF
 
-	cat > qqmusic.desktop << EOF
+	cat > qqmusic.desktop <<-EOF
 	[Desktop Entry]
 	Name=QQMusic
 	Name[zh_CN]=QQ音乐
@@ -37,7 +37,7 @@ EOF
 	StartupWMClass=qqmusic
 	Comment=Tencent QQMusic
 	Categories=AudioVideo;
-EOF
+	EOF
 
 	vmkdir usr/share/pixmaps
 	vmkdir usr/lib/${pkgname}

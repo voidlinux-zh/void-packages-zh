@@ -5,8 +5,8 @@ revision=1
 # used for the cargo environment config
 build_style=cargo
 hostmakedepends="nodejs pkg-config pnpm sed quickjs wget mihomo clash-rs clash-geoip moreutils clang llvm v2ray-rules-dat-autoupdate"
-makedepends="dbus-devel gtk+3-devel libappindicator-devel libsoup-devel openssl-devel webkit2gtk-devel quickjs-devel"
-depends="libappindicator clash-rs mihomo openssl webkit2gtk"
+makedepends="dbus-devel gtk+3-devel libayatana-appindicator-devel libsoup-devel openssl-devel webkit2gtk-devel quickjs-devel"
+depends="libayatana-appindicator clash-rs mihomo openssl webkit2gtk"
 archs="~*-musl"
 short_desc="A Clash GUI based on tauri.Clash Nyanpasu! (∠・ω< )⌒☆​"
 maintainer="madoka773 <valigarmanda55@gmail.com>"
