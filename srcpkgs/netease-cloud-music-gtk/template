@@ -3,7 +3,6 @@ pkgname=netease-cloud-music-gtk
 version=2.3.0
 revision=1
 build_style=meson
-archs="~*-musl"
 short_desc="NetEase Cloud Music Player Based on Rust+GTK Development on Linux Platform"
 maintainer="madoka773 <valigarmanda55@gmail.com>"
 license="GPL-3.0-or-later"

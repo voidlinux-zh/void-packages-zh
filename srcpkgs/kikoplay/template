@@ -10,7 +10,7 @@ changelog="https://kikoplay.fun/"
 build_style="qmake"
 configure_args="KikoPlay.pro"
 makedepends="qt5-websockets-devel mpv-devel lua53-devel"
-depends="mpv aria2 yt-dlp ffmpeg kikoplay-app kikoplay-script"
+depends="mpv aria2 yt-dlp ffmpeg lua53 kikoplay-app kikoplay-script"
 distfiles="https://github.com/KikoPlayProject/KikoPlay/archive/refs/tags/${version}.tar.gz"
 checksum="da33b02f2b4264c3040feec8a24986f323174feac3505ec52e0a68e5c9ce7b76"
 
