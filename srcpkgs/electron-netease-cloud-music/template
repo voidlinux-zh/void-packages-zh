@@ -9,7 +9,7 @@ short_desc="UNOFFICIAL client for music.163.com . Powered by Electron, Vue, and 
 maintainer="xiarenfan <xiarenfan1998@onionmail.com>"
 license="GPL-3.0-or-later"
 homepage="https://github.com/Rocket1184/electron-netease-cloud-music"
-distfiles="https://github.com/Rocket1184/electron-netease-cloud-music/archive/v${version}.tar.gz"
+distfiles="https://github.com/Rocket1184/electron-netease-cloud-music/archive/refs/tags/v${version}.tar.gz"
 checksum="01a20c85918fcb780cc361df238ddc2fc3255bf10e12f24b1a88fb85b3598e41"
 
 
