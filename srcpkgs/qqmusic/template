@@ -3,7 +3,7 @@ pkgname=qqmusic
 version=1.1.5
 revision=8
 _electron_ver=24
-archs="x86_64"
+archs="x86_64 x86_64-musl"
 hostmakedepends="wget nodejs asar"
 depends="electron${_electron_ver}"
 short_desc="Tencent QQMusic, Run with system Electron."
@@ -41,7 +41,7 @@ EOF
 
 	vmkdir usr/share/pixmaps
 	vmkdir usr/lib/${pkgname}
-	vinstall ${XBPS_BUILDDIR}/${pkgname}_${version}-${revision}.asar 644 usr/lib/${pkgname} app.asar
+	vinstall ${XBPS_SRCDISTDIR}/${pkgname}-${version}/${pkgname}_${version}-${revision}.asar 644 usr/lib/${pkgname} app.asar
 	vinstall qqmusic.desktop 644 usr/share/applications
 	vinstall logo.png 644 usr/share/pixmaps ${pkgname}.png
 	vbin qqmusic
