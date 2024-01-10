@@ -13,7 +13,7 @@ license="GPL-3.0-or-later"
 homepage="https://github.com/clash-verge-rev/clash-verge-rev"
 changelog="https://raw.githubusercontent.com/clash-verge-rev/clash-verge-rev/main/UPDATELOG.md"
 distfiles="https://github.com/clash-verge-rev/clash-verge-rev/archive/refs/tags/v${version}.tar.gz"
-checksum="6558402e24d28a344533301da0880b0cd1c47b792f466ef5d9650e173a3982ae"
+checksum="f15fed8539484b035cbeec4ba3e64e02c7a56477c41370faa9153d6a6f144f2b"
 
 pre_build() {
 	# pnpm check is broken
