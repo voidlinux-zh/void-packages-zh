@@ -12,7 +12,7 @@ configure_args="-DPLATFORM_DESKTOP:BOOL=ON
 	-DCMAKE_BUILD_TYPE=Release
 	-DGLFW_BUILD_WAYLAND:BOOL=ON
 	-DGLFW_BUILD_X11:BOOL=ON"
-hostmakedepends="pkg-config git python libcurl"
+hostmakedepends="pkg-config git python"
 makedepends="mpv-devel libwebp-devel libXcursor-devel"
 depends="mpv libwebp"
 
