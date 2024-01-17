@@ -1,6 +1,6 @@
 # Template file for 'clash-verge-rev'
 pkgname=clash-verge-rev
-version=1.4.6
+version=1.4.8
 revision=1
 # used for the cargo environment config
 build_style=cargo
@@ -13,7 +13,7 @@ license="GPL-3.0-or-later"
 homepage="https://github.com/clash-verge-rev/clash-verge-rev"
 changelog="https://raw.githubusercontent.com/clash-verge-rev/clash-verge-rev/main/UPDATELOG.md"
 distfiles="https://github.com/clash-verge-rev/clash-verge-rev/archive/refs/tags/v${version}.tar.gz"
-checksum="f15fed8539484b035cbeec4ba3e64e02c7a56477c41370faa9153d6a6f144f2b"
+checksum="378c060033dbc606ce5d8ccb5d3327706a143f30c5313f75c8d3bc603467a7a1"
 
 pre_build() {
 	# pnpm check is broken
