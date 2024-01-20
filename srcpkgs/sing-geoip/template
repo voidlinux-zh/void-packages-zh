@@ -1,6 +1,6 @@
 # Template file for 'sing-geoip'
 pkgname=sing-geoip
-version=20231212
+version=20240112
 revision=1
 short_desc="sing-geoip database"
 maintainer="xiarenfan <xiarenfan1998@onionmail.com>"
@@ -8,8 +8,8 @@ license="GPL-3.0-or-later"
 homepage="https://github.com/SagerNet/sing-geoip"
 distfiles="https://github.com/SagerNet/sing-geoip/releases/download/${version}/geoip.db
 	https://github.com/SagerNet/sing-geoip/releases/download/${version}/geoip-cn.db"
-checksum="1d00fe87e50854e10444813413d2b81a90dc40058817f12e6775a0ff23fa676c
-	2ea8b663b1776ee6ad18556e0ea24dec4ddf6eff501d8ad56d60018c044fae57"
+checksum="927eac095d7ba5d14434a5766861fb55cd98f3f2f06a2c39b377d59cf3ac5939
+	1ecf7f206fe8f3cb89295eb84e56644d2d159fb5f0873120380d976f44d7d07d"
 skip_extraction="geoip.db geoip-cn.db"
 
 do_install() {
