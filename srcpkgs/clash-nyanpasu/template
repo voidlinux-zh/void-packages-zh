@@ -13,7 +13,7 @@ license="GPL-3.0-or-later"
 homepage="https://github.com/keiko233/clash-nyanpasu"
 changelog="https://raw.githubusercontent.com/keiko233/clash-nyanpasu/main/UPDATELOG.md"
 distfiles="https://github.com/keiko233/clash-nyanpasu/archive/refs/tags/v${version}.tar.gz"
-checksum="a087b0e44b7c7dfed1318d8db9c3205f56055269afb5e4e31a579970a7c17c88"
+checksum="c1db01fb0b2076dfcd33be5cb2b55ef0226b0ab84701ddbb5e7d03300783f5dd"
 
 pre_build() {
 	# disable tauri updater
