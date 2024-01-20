@@ -30,6 +30,7 @@ do_build() {
 
 do_install() {
 	vbin bin/${pkgname}-linux-${_mihomo_arch} mihomo
+	ln -svf mihomo ${DESTDIR}/usr/bin/clash-meta
 	vsv mihomo
 	vinstall "${FILESDIR}/config.yaml" 644 etc/mihomo
 	ln -svf /etc/clash/Country.mmdb ${DESTDIR}/etc/mihomo/

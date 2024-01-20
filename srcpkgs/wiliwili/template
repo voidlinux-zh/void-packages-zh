@@ -1,6 +1,6 @@
 # Template file for 'wiliwili'
 pkgname=wiliwili
-version=1.2.2
+version=1.3.0
 revision=1
 build_style=cmake
 short_desc="A third-party Bilibili client designed specifically for controller users."
@@ -12,7 +12,7 @@ configure_args="-DPLATFORM_DESKTOP:BOOL=ON
 	-DCMAKE_BUILD_TYPE=Release
 	-DGLFW_BUILD_WAYLAND:BOOL=ON
 	-DGLFW_BUILD_X11:BOOL=ON"
-hostmakedepends="pkg-config cmake ninja git python"
+hostmakedepends="pkg-config git python"
 makedepends="mpv-devel libwebp-devel libXcursor-devel"
 depends="mpv libwebp"
 

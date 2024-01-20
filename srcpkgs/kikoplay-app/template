@@ -2,13 +2,13 @@
 pkgname=kikoplay-app
 version=1.0.1
 revision=1
-short_desc="App files of KikoPLay"
+short_desc="App files of KikoPlay"
 maintainer="madoka773 <valigarmanda55@gmail.com>"
 license="MIT"
 homepage="https://github.com/KikoPlayProject/KikoPlayApp"
-_commit="233dd28e8ee284cc6f0672a1310916bea5c05ebc"
+_commit="0a3c89506271616afa73cd8e3d2fbbca02e31286"
 distfiles="https://github.com/KikoPlayProject/KikoPlayApp/archive/${_commit}.tar.gz"
-checksum="872db50de4aecd1d6ddfb593ad06c3e36bdb8f2deb16ca9911fd6e51c8e72838"
+checksum="becbb5ce684e5d832de3cc1b94974c7243648b50f6e6ce76f2f5e15cdd2128f0"
 
 do_install() {
 	vlicense LICENSE

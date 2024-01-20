@@ -1,6 +1,6 @@
 # Template file for 'sing-box'
 pkgname=sing-box
-version=1.7.7
+version=1.8.2
 revision=1
 build_style=go
 go_import_path="github.com/SagerNet/sing-box"
@@ -10,8 +10,8 @@ short_desc="The universal proxy platform."
 maintainer="haninfang <xiarenfan@tutanota.com>"
 license="GPL-3.0-or-later"
 homepage="https://sing-box.sagernet.org/"
-distfiles="https://github.com/SagerNet/sing-box/archive/v${version}.tar.gz"
-checksum="ce182cb2181e898b56ca9b6ce0d5adeaece8e761ac62ce8cde69b3c7219b8430"
+distfiles="https://github.com/SagerNet/sing-box/archive/refs/tags/v${version}.tar.gz"
+checksum="0d9b947817e33d8a965c1367f623cd3b8dc415282f9e4d658efd2573d9fd7cc1"
 _tags="with_gvisor,with_quic,with_wireguard,with_utls,with_reality_server,with_clash_api,with_ech"
 
 do_build() {

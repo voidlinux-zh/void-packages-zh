@@ -1,12 +1,11 @@
 # Template file for 'linuxqq'
 pkgname=linuxqq
-_version=3.2.3
-_release=20139
-_commit=49bba70f
+_version=3.2.5
+_release=20979
+_commitsha=c64ca459
 version=${_version}.${_release}
 revision=1
 archs="x86_64 aarch64"
-hostmakedepends="wget"
 short_desc="New Linux QQ based on Electron"
 maintainer="madoka773 <valigarmanda55@gmail.com>"
 license="custom"
@@ -16,16 +15,21 @@ repository=nonfree
 restricted=yes
 
 case "${XBPS_TARGET_MACHINE}" in
-	x86_64) _deb_arch=amd64 ;;
-	aarch64) _deb_arch=arm64 ;;
+	x86_64*) 
+		_deb_arch=amd64
+		checksum="5c3420f7c068d28ec11a432497abe9512bd4774c006cc6b470f5453eb22a5806"
+		;;
+	aarch64*) 
+		_deb_arch=arm64
+		checksum="cf32c2588ff42ffea8a45a53110376c5d86a580f22de9608f8aff4cfaded3a1e"
+		;;
 esac
 
-do_fetch() {
-	wget https://dldir1.qq.com/qqfile/qq/QQNT/${_commit}/${pkgname}_${_version}-${_release}_${_deb_arch}.deb
-}
+distfiles="https://dldir1.qq.com/qqfile/qq/QQNT/${_commitsha}/${pkgname}_${_version}-${_release}_${_deb_arch}.deb"
+skip_extraction="${pkgname}_${_version}-${_release}_${_deb_arch}.deb"
 
 do_extract() {
-	ar p "${XBPS_BUILDDIR}/${pkgname}_${_version}-${_release}_${_deb_arch}.deb" data.tar.xz | bsdtar --extract --xz -f - -C .
+	ar p "${XBPS_SRCDISTDIR}/${pkgname}-${version}//${pkgname}_${_version}-${_release}_${_deb_arch}.deb" data.tar.xz | bsdtar --extract --xz -f - -C .
 }
 
 do_install() {

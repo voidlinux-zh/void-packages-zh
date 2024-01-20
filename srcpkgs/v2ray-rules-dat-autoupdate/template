@@ -2,16 +2,15 @@
 pkgname=v2ray-rules-dat-autoupdate
 _pkgname=v2ray-rules-dat
 version=1.3
-_release_tag=202401012209
+_release_tag=202401192209
 revision=1
 short_desc="Enhanced edition of V2Ray and Xray rules dat files, compatible with Trojan-Go. Automaitcally update."
 maintainer="madoka773 <valigarmanda55@gmail.com>"
 license="GPL-3.0-or-later"
-hostmakedepends="wget"
 depends="curl bsdtar cronie"
 homepage="https://github.com/Loyalsoldier/v2ray-rules-dat"
 distfiles="https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/${_release_tag}/rules.zip"
-checksum="1517e1d764793b712fb981039600a72813948c7d0578ec62ee1d34090881917b"
+checksum="786640a4b09172992d342c243eaab5f641c94fae23e0a16a74d1a7520dc61278"
 
 do_install() {
 	vinstall geoip.dat 0644 var/lib/${_pkgname}
