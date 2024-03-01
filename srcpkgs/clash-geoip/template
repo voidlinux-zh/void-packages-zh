@@ -1,13 +1,13 @@
 # Template file for 'clash-geoip'
 pkgname=clash-geoip
-version=20240112
+version=20240212
 revision=1
 short_desc="GeoLite2 data created by MaxMind"
 maintainer="xiarenfan <xiarenfan1998@onionmail.com>"
 license="custom:eula"
 homepage="https://github.com/Dreamacro/maxmind-geoip"
 distfiles="https://github.com/Dreamacro/maxmind-geoip/releases/download/${version}/Country.mmdb"
-checksum="46744f18c1dbfa07222b1555d03a0afc4ffbb08ed96fdcafb6a1d8b580c2d794"
+checksum="70d54459d211a36676165b99211d0ee68dc0b28e2d0dc5721c01b70e4366a524"
 skip_extraction="Country.mmdb"
 
 do_install() {
