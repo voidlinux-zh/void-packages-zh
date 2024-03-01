@@ -33,7 +33,7 @@ $ git clone --depth 1 https://github.com/voidlinux-zh/void-packages-zh
 ```
 $ cd void-packages-zh
 $ ./xbps-src binary-bootstrap
-$ ./xbps_src pkg 软件包名
+$ ./xbps-src pkg 软件包名
 ```
 
 编译完了，就可以安装了：
