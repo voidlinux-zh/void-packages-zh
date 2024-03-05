@@ -1,6 +1,6 @@
 # Template file for 'mihomo'
 pkgname=mihomo
-version=1.18.0
+version=1.18.1
 revision=1
 build_style=go
 go_import_path="github.com/MetaCubeX/mihomo"

@@ -2,17 +2,7 @@
 中文用户可能需要的 VoidLinux 软件包
 
 ## 软件包列表
-
-| 软件名                        | 详情                          | 是否开源              |
-|------------------------------|------------------------------|----------------------|
-| v2rayA                       | v2ray 代理软件                | 开源                 |
-| electron-netease-cloud-music | 网易云音乐 electron 客户端      | 客户端开源、服务端闭源  |
-| clash                        | 代理软件                      | 开源                 |
-| go-musicfox                  | 网易云音乐命令行第三方客户端      | 客户端开源、服务端闭源  |
-| clash-geoip                  | 部分代理软件依赖的 GeoLite2 数据 | ？                   |
-| clash-meta                   | 代理软件                       | 开源                 |
-| font-iming-ttf       | I.Ming ( I.明體 / 一點明體 / 一点明朝 / 一点明体 ) | 开源          |
-| fcitx5-pinyin-zhwiki | fcitx5 维基百科词条词库                      | 开源          |
+自行进入 srcpkg 文件夹查看
 
 ## 如何使用
 
@@ -33,7 +23,7 @@ $ git clone --depth 1 https://github.com/voidlinux-zh/void-packages-zh
 ```
 $ cd void-packages-zh
 $ ./xbps-src binary-bootstrap
-$ ./xbps_src pkg 软件包名
+$ ./xbps-src pkg 软件包名
 ```
 
 编译完了，就可以安装了：
